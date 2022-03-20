@@ -1,0 +1,2 @@
+DD0000 red
+B2B2B2 gray
