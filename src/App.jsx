@@ -35,9 +35,9 @@ function App() {
 
           {/* навигация по тарифам */}
           <div className="row justify-content-center mt-5 tariffs_nav_holder">
-            <TariffBtn name="Интернет" id="internet" className={config.tariffNav.active.className} active={true}/>
-            <TariffBtn name="Интернет+ТВ" id="internet_tv" className={config.tariffNav.inactive.className} active={false}/>
-            <TariffBtn name="Интернет+ТВ+Мобильный" id="internet_tv_phone" className={config.tariffNav.inactive.className} active={false}/>
+            <TariffBtn name="Интернет" id="internet" className={config.tariffNav.active.className} active={true} pics={['wifi']}/>
+            <TariffBtn name="Интернет+ТВ" id="internet_tv" className={config.tariffNav.inactive.className} active={false} pics={['wifi', 'tv']}/>
+            <TariffBtn name="Интернет+ТВ+Мобильный" id="internet_tv_phone" className={config.tariffNav.inactive.className} active={false} pics={['wifi', 'tv', 'phone']}/>
           </div>
           {/* конец навигации по тарифам */}
         </div>
