@@ -29,15 +29,15 @@ function App() {
 
           {/* акция */}
           <div className="row justify-content-center action_holder mt-5">
-            <h5>{config.action}</h5>
+            <h5>{config.stock}</h5>
           </div>
           {/* конец акции */}
 
           {/* навигация по тарифам */}
           <div className="row justify-content-center mt-5 tariffs_nav_holder">
-            <TariffBtn/>
-            <TariffBtn/>
-            <TariffBtn/>
+            <TariffBtn name="Интернет" id="internet" className={config.tariffNav.active.className} active={true}/>
+            <TariffBtn name="Интернет+ТВ" id="internet_tv" className={config.tariffNav.inactive.className} active={false}/>
+            <TariffBtn name="Интернет+ТВ+Мобильный" id="internet_tv_phone" className={config.tariffNav.inactive.className} active={false}/>
           </div>
           {/* конец навигации по тарифам */}
         </div>
