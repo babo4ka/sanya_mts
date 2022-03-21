@@ -1,0 +1,24 @@
+// овновное
+.btn_holder{
+    min-height: 50px;
+    min-width: 200px;
+    margin: 0px 90px;
+
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+#tariffs_icons, #tariffs_name{
+    height: 20px;
+    margin: 10px 0px;
+    vertical-align: middle;
+}
+
+#tariffs_name{
+    color: #B2B2B2;
+}
+
+.tariff_icon{
+    height: 25px;
+    width: 50px;
+}

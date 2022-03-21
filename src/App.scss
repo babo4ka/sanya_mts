@@ -1,0 +1,34 @@
+.App {
+  text-align: center;
+}
+
+// локация
+.location_holder{
+  margin-top: 15px;
+
+}
+
+.location_item{
+  margin: 0px 5px;
+  vertical-align: middle;
+}
+
+#location_icon{
+  height: 100%;
+  width: 100%;
+}
+
+#location_txt{
+  color: #B2B2B2;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+// конец локации
+
+// акция
+.action_holder{
+  color: #DD0000;
+}
+
+// конец акции
