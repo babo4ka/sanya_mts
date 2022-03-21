@@ -3,7 +3,7 @@ const config = require('../config.json')
 const initialState ={
     groups:[
         {
-            wifi:require(`../icons/gray/wifi_gray.png`),
+            wifi:require(`../icons/white/wifi_white.png`),
             config:{className:config.tariffNav.active.className, active:true}
         },
         {
@@ -48,8 +48,10 @@ export const tariffBtnReducer = (state = initialState, action) =>{
 
         case MAKE_ACTIVE_WIFITV:
             return {...state, groups: [
-                {wifi:require(`../icons/gray/wifi_gray.png`),
-                config:{className:config.tariffNav.inactive.className, active:false}},
+                {
+                    wifi:require(`../icons/gray/wifi_gray.png`),
+                    config:{className:config.tariffNav.inactive.className, active:false}
+                },
                 {
                     wifi:require(`../icons/white/wifi_white.png`), 
                     tv:require(`../icons/white/tv_white.png`),

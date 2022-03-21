@@ -21,20 +21,22 @@ const TariffBtn = (props) =>{
 
         $(`#${props.id}`).on('click', ()=>{
             if(active){
+                console.log("active!!")
                 return;
             }
 
             dispatch(props.dispatch())
 
-            setClassName(`${stateObject.config.className} col-2 container btn_holder`);
+            className = `${stateObject.config.className} col-2 container btn_holder`
 
-            active = stateObject.config.active;
+            active = stateObject.config.active
         })
     }, [])
 
 
-    const [className, setClassName] = useState(`${stateObject.config.className} col-2 container btn_holder`)
-    let active = stateObject.config.active;
+    // const [className, setClassName] = useState()
+    let className = `${stateObject.config.className} col-2 container btn_holder`
+    let active = stateObject.config.active
 
     return(
         <div className={className} id={props.id}>
