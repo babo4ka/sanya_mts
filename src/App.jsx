@@ -2,11 +2,15 @@ import './App.scss';
 import location_icon from './icons/gray/location_gray.png'
 import Contact from './components/Contact';
 import TariffBtn from './components/TariffBtn';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
+import { make_activewifitvph_action, make_activewifitv_action, make_activewifi_action } from './store/tariffBtnReducer';
 const config = require('./config.json')
 
 function App() {
 
   return (
+    <Provider store={store}>
     <div className="App">
         <div className="container-fluid">
 
@@ -35,13 +39,14 @@ function App() {
 
           {/* навигация по тарифам */}
           <div className="row justify-content-center mt-5 tariffs_nav_holder">
-            <TariffBtn name="Интернет" id="internet" className={config.tariffNav.active.className} active={true} pics={['wifi']}/>
-            <TariffBtn name="Интернет+ТВ" id="internet_tv" className={config.tariffNav.inactive.className} active={false} pics={['wifi', 'tv']}/>
-            <TariffBtn name="Интернет+ТВ+Мобильный" id="internet_tv_phone" className={config.tariffNav.inactive.className} active={false} pics={['wifi', 'tv', 'phone']}/>
+            <TariffBtn name="Интернет" id="internet" className={config.tariffNav.active.className} active={true} groupI={0} dispatch={()=>make_activewifi_action()}/>
+            <TariffBtn name="Интернет+ТВ" id="internet_tv" className={config.tariffNav.inactive.className} active={false} groupI={1} dispatch={()=>make_activewifitv_action()}/>
+            <TariffBtn name="Интернет+ТВ+Мобильный" id="internet_tv_phone" className={config.tariffNav.inactive.className} active={false} groupI={2} dispatch={()=>make_activewifitvph_action()}/>
           </div>
           {/* конец навигации по тарифам */}
         </div>
     </div>
+    </Provider>
   );
 }
 
