@@ -24,12 +24,11 @@ const TariffBtn = (props) =>{
                 console.log("active!!")
                 return;
             }
-
             dispatch(props.dispatch())
 
-            className = `${stateObject.config.className} col-2 container btn_holder`
+            // className = `${stateObject.config.className} col-2 container btn_holder`
 
-            active = stateObject.config.active
+            // active = stateObject.config.active
         })
     }, [])
 
