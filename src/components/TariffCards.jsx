@@ -63,7 +63,7 @@ const TariffCards = () =>{
 
     return(
 
-        <div className="row justify-content-center mt-5 tariffs_cards_holder">
+        <div id="tariff_cards" className="row justify-content-center mt-5 tariffs_cards_holder">
             {/* проходимся по массиву тарифов и создаём карточку для каждого */}
             {cardsArray.map(tariff=>(
                 <TariffCard key={tariff.name} config={tariff}/>

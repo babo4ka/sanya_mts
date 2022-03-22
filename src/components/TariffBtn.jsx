@@ -9,8 +9,6 @@ const TariffBtn = (props) =>{
     const dispatch = useDispatch();
     const stateObject = useSelector(state => state.btns.groups[props.groupI])
 
-
-
     const pics = Object.keys(stateObject).filter(key => (
         key !== 'config'
     )).map(key =>(
@@ -19,21 +17,29 @@ const TariffBtn = (props) =>{
 
     useEffect(async ()=>{
 
+        // $(`#${props.id}`).on('mouseenter', ()=>{
+        //     $(`#${props.id}`).css('background-color', '#ec4141')
+        // })
+
+        // $(`#${props.id}`).on('mouseout', ()=>{
+        //     console.log('eh')
+        //     $(`#${props.id}`).css('background-color', '#DD0000')
+        // })
+
         $(`#${props.id}`).on('click', ()=>{
-            // if(active){
-            //     console.log("active!!")
-            //     return;
-            // }
-            dispatch(props.dispatch())
+            console.log($(".btn_holder").css('background-color'))
+            $("#tariff_cards").fadeToggle(200, 'linear', function(){
+                dispatch(props.choose())
+            })
 
-            // className = `${stateObject.config.className} col-2 container btn_holder`
-
-            // active = stateObject.config.active
+            dispatch(props.makeActive())
+        
+            $("#tariff_cards").fadeToggle(200, 'linear')
+            console.log($(".btn_holder").css('background-color'))
         })
     }, [])
 
 
-    // const [className, setClassName] = useState()
     let className = `${stateObject.config.className} col-2 container btn_holder`
     let active = stateObject.config.active
 

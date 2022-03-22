@@ -11,6 +11,7 @@
     text-align: center;
 }
 
+
 // иконки и название
 #tariffs_icons, #tariffs_name{
     height: 20px;
@@ -34,7 +35,15 @@
     color: white;
 }
 
+.tariff_nav_active:hover{
+    background-color: #ec4141;
+}
+
 .tariff_nav_inactive{
     background-color: white;
     color: #B2B2B2;
+}
+
+.tariff_nav_inactive:hover{
+    background-color: rgba(236, 235, 235, 0.747);
 }
