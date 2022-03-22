@@ -1,4 +1,10 @@
-import { createStore } from "redux";
+import { createStore, combineReducers } from "redux";
 import { tariffBtnReducer } from "./tariffBtnReducer";
+import { tariffCardReducer } from "./tariffCardReducer";
 
-export const store = createStore(tariffBtnReducer);
+const rootReducer = combineReducers({
+    btns:tariffBtnReducer,
+    cards:tariffCardReducer
+})
+
+export const store = createStore(rootReducer);

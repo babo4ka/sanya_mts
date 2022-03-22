@@ -7,7 +7,7 @@ const config = require('../config.json')
 const TariffBtn = (props) =>{
 
     const dispatch = useDispatch();
-    const stateObject = useSelector(state => state.groups[props.groupI])
+    const stateObject = useSelector(state => state.btns.groups[props.groupI])
 
 
 
@@ -20,10 +20,10 @@ const TariffBtn = (props) =>{
     useEffect(async ()=>{
 
         $(`#${props.id}`).on('click', ()=>{
-            if(active){
-                console.log("active!!")
-                return;
-            }
+            // if(active){
+            //     console.log("active!!")
+            //     return;
+            // }
             dispatch(props.dispatch())
 
             // className = `${stateObject.config.className} col-2 container btn_holder`
@@ -38,15 +38,17 @@ const TariffBtn = (props) =>{
     let active = stateObject.config.active
 
     return(
+        // контейнер кнопки навигации
         <div className={className} id={props.id}>
             <div className="row justify-content-center mb-3" id="tariffs_icons">
+                {/* иконки тарифа */}
                 {pics.map(pic=>(
-                    <img className="col-6 tariff_icon" src={pic} alt=""></img>
+                    <img key={pic} className="col-6 tariff_icon" src={pic} alt=""></img>
                 ))}
             </div>
-
+            {/* название тарифа   */}
             <div className="row justify-content-center" id="tariffs_name">
-                <span className="col-12">{props.name}</span>
+                <span className="col-12 text-truncate">{props.name}</span>
             </div>
         </div>
     )

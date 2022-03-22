@@ -5,6 +5,7 @@ import TariffBtn from './components/TariffBtn';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import { make_activewifitvph_action, make_activewifitv_action, make_activewifi_action } from './store/tariffBtnReducer';
+import TariffCards from './components/TariffCards';
 const config = require('./config.json')
 
 function App() {
@@ -44,6 +45,10 @@ function App() {
             <TariffBtn name="Интернет+ТВ+Мобильный" id="internet_tv_phone" className={config.tariffNav.inactive.className} active={false} groupI={2} dispatch={()=>make_activewifitvph_action()}/>
           </div>
           {/* конец навигации по тарифам */}
+
+          {/* тарифы */}
+            <TariffCards/>
+          {/* конец тарифов */}
         </div>
     </div>
     </Provider>
