@@ -1,12 +1,14 @@
 // основное
 .tariff_card_holder{
-    width: 500px;
+    max-width: 500px;
     min-height: 200px;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     background-color: black;
 
     padding: 10px 10px;
+
+    margin: 10px 15px;
 }
 
 // карточка
@@ -110,3 +112,16 @@
 
 // конец карточки
 
+// колонка для смартфонов
+
+@media(min-width:576px){
+    .middle_col{
+        display: none;
+    }
+}
+
+@media(max-width:576px){
+    .right_col, .left_col{
+        display: none;
+    }
+}

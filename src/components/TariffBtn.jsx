@@ -5,29 +5,19 @@ import { useDispatch, useSelector } from 'react-redux'
 const config = require('../config.json')
 
 const TariffBtn = (props) =>{
-
+//1043
     const dispatch = useDispatch();
     const stateObject = useSelector(state => state.btns.groups[props.groupI])
 
     const pics = Object.keys(stateObject).filter(key => (
-        key !== 'config'
+        key !== 'config' && key !== 'name'
     )).map(key =>(
         stateObject[key]
     ))
 
     useEffect(async ()=>{
 
-        // $(`#${props.id}`).on('mouseenter', ()=>{
-        //     $(`#${props.id}`).css('background-color', '#ec4141')
-        // })
-
-        // $(`#${props.id}`).on('mouseout', ()=>{
-        //     console.log('eh')
-        //     $(`#${props.id}`).css('background-color', '#DD0000')
-        // })
-
         $(`#${props.id}`).on('click', ()=>{
-            console.log($(".btn_holder").css('background-color'))
             $("#tariff_cards").fadeToggle(200, 'linear', function(){
                 dispatch(props.choose())
             })
@@ -35,7 +25,6 @@ const TariffBtn = (props) =>{
             dispatch(props.makeActive())
         
             $("#tariff_cards").fadeToggle(200, 'linear')
-            console.log($(".btn_holder").css('background-color'))
         })
     }, [])
 
@@ -54,7 +43,7 @@ const TariffBtn = (props) =>{
             </div>
             {/* название тарифа   */}
             <div className="row justify-content-center" id="tariffs_name">
-                <span className="col-12 text-truncate">{props.name}</span>
+                <span className="col-12 text-truncate w-100 p-0">{props.name}</span>
             </div>
         </div>
     )

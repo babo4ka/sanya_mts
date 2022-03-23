@@ -17,7 +17,8 @@ const initialState ={
             phone:require(`../icons/gray/phone_gray.png`),
             config:{className:config.tariffNav.inactive.className, active:false}
         }
-    ]   
+    ],
+    name:"wifi"
 }
 
 const MAKE_ACTIVE_WIFI = "MAKE_ACTIVE_WIFI";
@@ -42,7 +43,8 @@ export const tariffBtnReducer = (state = initialState, action) =>{
                     phone:require(`../icons/gray/phone_gray.png`),
                     config:{className:config.tariffNav.inactive.className, active:false}
                 }
-            ]
+            ],
+            name:"wifi"
             }
 
 
@@ -63,7 +65,8 @@ export const tariffBtnReducer = (state = initialState, action) =>{
                     phone:require(`../icons/gray/phone_gray.png`),
                     config:{className:config.tariffNav.inactive.className, active:false}
                 }
-            ]
+            ],
+            name:"wifi_tv"
             }
 
 
@@ -82,7 +85,8 @@ export const tariffBtnReducer = (state = initialState, action) =>{
                     phone:require(`../icons/white/phone_white.png`),
                     config:{className:config.tariffNav.active.className, active:true}
                 }
-            ]
+            ],
+            name:"wifi_tv_ph"
             }
 
 

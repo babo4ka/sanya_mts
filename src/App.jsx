@@ -7,6 +7,7 @@ import { store } from './store/store';
 import { make_activewifitvph_action, make_activewifitv_action, make_activewifi_action } from './store/tariffBtnReducer';
 import TariffCards from './components/TariffCards';
 import { choose_wifi, choose_wifitv, choose_wifitvph } from './store/tariffCardReducer';
+import TariffDropDown from './components/TariffDropDosn';
 const config = require('./config.json')
 
 function App() {
@@ -40,16 +41,19 @@ function App() {
           {/* конец акции */}
 
           {/* навигация по тарифам */}
+
           <div className="row justify-content-center mt-5 tariffs_nav_holder">
             <TariffBtn name="Интернет" id="internet" className={config.tariffNav.active.className} active={true} groupI={0} choose={()=>choose_wifi()} makeActive={()=>make_activewifi_action()}/>
             <TariffBtn name="Интернет+ТВ" id="internet_tv" className={config.tariffNav.inactive.className} active={false} groupI={1} choose={()=>choose_wifitv()} makeActive={()=>make_activewifitv_action()}/>
-            <TariffBtn name="Интернет+ТВ+Мобильный" id="internet_tv_phone" className={config.tariffNav.inactive.className} active={false} groupI={2} choose={()=>choose_wifitvph()} makeActive={()=>make_activewifitvph_action()}/>
+            <TariffBtn name="Интернет+ТВ+Мобайл" id="internet_tv_phone" className={config.tariffNav.inactive.className} active={false} groupI={2} choose={()=>choose_wifitvph()} makeActive={()=>make_activewifitvph_action()}/>
+            <TariffDropDown/>
           </div>
           {/* конец навигации по тарифам */}
 
           {/* тарифы */}
             <TariffCards/>
           {/* конец тарифов */}
+
         </div>
     </div>
     </Provider>

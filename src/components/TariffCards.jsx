@@ -6,7 +6,7 @@ const TariffCard = (props) =>{
 
     return(
         // контейнер для карточки
-        <div key={props.key} className="container-fluid tariff_card_holder">
+        <div key={props.key} className="col-lg-6 col-10 container-fluid tariff_card_holder">
             <div className="row justify-content-center">
                 {/* левая колонка */}
                 <div className="col-6 card_cols left_col text-start">
@@ -44,6 +44,44 @@ const TariffCard = (props) =>{
                     </div>
                     {/* подключение */}
                     
+                    <div className=" gen_btns mt-2 mb-2">
+                        <button className="col-6 get_btn connect_btn">Подключить</button>
+                        <button className="col-6 get_btn more_btn">Подробнее</button>
+                    </div>
+                    
+                </div>
+
+                {/* общая колонка для телефонов */}
+                <div className="col-12 card_cols middle_col">
+                    {/* название тарифа */}
+                    <span className="tariff_name">{props.config.name}</span>
+
+                    {/* услуги тарифа */}
+                    {props.config.services.map(service=>(
+                        <div key={service.name} className="services_holder mt-2">
+                            <label htmlFor={`service${service.name}`}>
+                                <img className="service_icon" src={require(`../icons/red/${service.icon}`)} alt=""></img>
+                            </label>
+                            <div id={`service${service.name}`} className="service text-start">
+                                <span>{service.name}</span>
+                                <span>{service.value}</span>
+                            </div>
+                        </div>
+                    ))}
+
+                    {/* доп опции тарифа */}
+                    <div className="extra_holder mt-2">
+                        <span>Дополнительно:</span>
+                        {props.config.extra.map(extr=>(
+                            <span className="mt-2" key={extr.value}>{extr.value}</span>
+                        ))}
+                    </div>
+                    {/* цена тарифа */}
+                    <div className="mt-2">
+                        <span className="price">{props.config.price} руб./месяц</span>
+                    </div>
+
+                    {/* подключение */}
                     <div className=" gen_btns mt-2 mb-2">
                         <button className="col-6 get_btn connect_btn">Подключить</button>
                         <button className="col-6 get_btn more_btn">Подробнее</button>
