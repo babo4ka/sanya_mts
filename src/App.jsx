@@ -7,7 +7,9 @@ import { store } from './store/store';
 import { make_activewifitvph_action, make_activewifitv_action, make_activewifi_action } from './store/tariffBtnReducer';
 import TariffCards from './components/TariffCards';
 import { choose_wifi, choose_wifitv, choose_wifitvph } from './store/tariffCardReducer';
-import TariffDropDown from './components/TariffDropDosn';
+import TariffDropDown from './components/TariffDropDown';
+import telegram_icon from './icons/black/telegram.png'
+import CallRequest from './components/CallRequest';
 const config = require('./config.json')
 
 function App() {
@@ -19,7 +21,7 @@ function App() {
 
           {/* локация */}
           <div className="row justify-content-center">
-            <div className="col-8 location_holder">
+            <div className="col-md-8 location_holder">
 
               <label htmlFor="location_txt" className="location_item">
                 <img id="location_icon" src={location_icon} alt=""></img>
@@ -54,6 +56,23 @@ function App() {
             <TariffCards/>
           {/* конец тарифов */}
 
+          {/* заявка на звонок */}
+
+          <CallRequest/>
+
+          {/* конец заявки на звонок */}
+
+          {/* контакты снизу */}
+          <div className="row justify-content-center mt-5">
+            <div className="col-md-6">
+                  <h5 className="col-12 phone_tg">Александр:</h5>
+                  <div className="col-12">
+                      <span className="phone_tg" id="phone_holder">{config.contacts.phone}</span>
+                      <label className="phone_tg" htmlFor="phone_holder"><a href="https://google.com" target="_blank"><img src={telegram_icon} alt=""></img></a></label>
+                  </div>
+            </div>
+          </div>
+          {/* конец контактов снизу */}
         </div>
     </div>
     </Provider>

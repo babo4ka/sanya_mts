@@ -33,14 +33,14 @@ const TariffDropDown = (props)=>{
     return(
         <div className="tariff_drop_down_holder dropdown">
             <select 
-                class="col-8 col-sm-6 tariff_group_select" 
+                className="col-8 col-sm-6 tariff_group_select" 
                 aria-label="Default select example"
                 value={value}  
                 onChange={changeGroup}         
             >
-                <option class="group_item" value="wifi">Интернет</option>
-                <option class="group_item" value="wifi_tv">Интернет+ТВ</option>
-                <option class="group_item" value="wifi_tv_ph">Интернет+ТВ+Мобайл</option>
+                <option className="group_item" value="wifi">Интернет</option>
+                <option className="group_item" value="wifi_tv">Интернет+ТВ</option>
+                <option className="group_item" value="wifi_tv_ph">Интернет+ТВ+Мобайл</option>
             </select>
         </div>
     )

@@ -6,8 +6,6 @@ $side_h:200px;
 .avatar_holder{
     width: $side_w;
     height: $side_h;
-
-    // border-radius: 15px;
 }
 
 .avatar{
@@ -28,7 +26,11 @@ $side_h:200px;
     font-weight: 500;
 }
 
-.phone_tg{
-    margin-left: 15px;
+
+
+@media (min-width:768px){
+    .phone_tg{
+        margin-left: 15px;
+    }
 }
 // конец номер телефона
