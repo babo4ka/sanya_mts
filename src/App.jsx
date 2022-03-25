@@ -10,6 +10,7 @@ import { choose_wifi, choose_wifitv, choose_wifitvph } from './store/tariffCardR
 import TariffDropDown from './components/TariffDropDown';
 import telegram_icon from './icons/black/telegram.png'
 import CallRequest from './components/CallRequest';
+import ModalCallRequest from './components/ModalCallRequest';
 const config = require('./config.json')
 
 function App() {
@@ -73,6 +74,9 @@ function App() {
             </div>
           </div>
           {/* конец контактов снизу */}
+
+
+          <ModalCallRequest/>
         </div>
     </div>
     </Provider>

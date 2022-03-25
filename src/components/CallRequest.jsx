@@ -46,7 +46,7 @@ const CallRequest = () =>{
     }
 
     useEffect(async ()=>{
-        for(let i=1; i<=2;i++){
+        for(let i=1; i<=4;i++){
             $(`#input_field_${i}`).focus(()=>{
                 setFloatStyles(i);
             })
@@ -68,7 +68,7 @@ const CallRequest = () =>{
             littleStyles.float_margin_t = -$('.input_field, .input_holder label').height()/2 - 15;
 
 
-            for(let i=1;i<=2;i++){
+            for(let i=1;i<=4;i++){
                 if($(`#input_field_${i}`).val() !== ''){
                     setFloatStyles(i)
                 }else{
@@ -109,9 +109,9 @@ const CallRequest = () =>{
     return(
         <div className="call_request_holder mt-5 container pb-2 col-md-8">
             <div className="row justify-content-center">
-                <span className="request_text">Оставьте заявку на звонок и я сам Вам перезвоню!</span>
+                <span className="request_text mt-3">Оставьте заявку на звонок и я сам Вам перезвоню!</span>
 
-                <form action="" className="row justify-content-center mt-5 pb-3">
+                <form onSubmit={(e)=>{e.preventDefault()}} action="" className="row justify-content-center mt-3 pb-3">
 
                     <div id="input_holder_1" className="col-lg-4 input_holder">
                         <input className="input_field" id="input_field_1" type="text" placeholder='Имя'></input>

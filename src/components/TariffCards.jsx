@@ -1,8 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { change_consultation_tariff } from '../store/consultationReducer';
 import './TariffCards.scss';
 
 const TariffCard = (props) =>{
 
+    const dispatch = useDispatch();
+
+    const setConsultationTariff = () =>{
+        dispatch(change_consultation_tariff(props.config.name));
+    }
 
     return(
         // контейнер для карточки
@@ -45,7 +51,7 @@ const TariffCard = (props) =>{
                     {/* подключение */}
                     
                     <div className=" gen_btns mt-2 mb-2">
-                        <button className="col-6 get_btn connect_btn">Подключить</button>
+                        <button onClick={setConsultationTariff} data-bs-toggle="modal" data-bs-target="#request_modal" className="col-6 get_btn connect_btn">Подключить</button>
                         <button className="col-6 get_btn more_btn">Подробнее</button>
                     </div>
                     
@@ -83,7 +89,7 @@ const TariffCard = (props) =>{
 
                     {/* подключение */}
                     <div className=" gen_btns mt-2 mb-2">
-                        <button className="col-6 get_btn connect_btn">Подключить</button>
+                        <button onClick={setConsultationTariff} data-bs-toggle="modal" data-bs-target="#request_modal" className="col-6 get_btn connect_btn">Подключить</button>
                         <button className="col-6 get_btn more_btn">Подробнее</button>
                     </div>
                     
