@@ -28,8 +28,8 @@ const TariffCard = (props) =>{
                 {/* правая колонка */}
                 <div className="col-6 card_cols right_col">
                     {/* тип тарифа */}
-                    <div className="type_holder">
-                        <span>{props.config.type}</span>
+                    <div className="text-end">
+                        <span className="type_holder">{props.config.type}</span>
                     </div>
                     {/* доп опции тарифа */}
                     <div className="extra_holder mt-2">
