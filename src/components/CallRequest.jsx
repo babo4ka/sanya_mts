@@ -1,6 +1,7 @@
 import './CallRequest.scss'
 import $ from 'jquery'
 import { useEffect } from 'react'
+
 const CallRequest = () =>{
 
     const bigStyles = {
@@ -43,6 +44,10 @@ const CallRequest = () =>{
             $(`.input_field, #input_holder_${i} label`).css('top', littleStyles.top)
             $(`.input_field, #input_holder_${i} label`).css('left', littleStyles.left)
         }
+    }
+
+    const maskOptions = { // создаем объект параметров
+        mask: '+{7}(999) 000-00-00' // задаем единственный параметр mask
     }
 
     useEffect(async ()=>{
@@ -106,8 +111,11 @@ const CallRequest = () =>{
         
     }, [])
 
+    
+
     return(
         <div className="call_request_holder mt-5 container pb-2 col-md-8">
+            
             <div className="row justify-content-center">
                 <span className="request_text mt-3">Оставьте заявку на звонок и я сам Вам перезвоню!</span>
 
