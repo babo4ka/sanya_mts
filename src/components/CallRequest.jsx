@@ -119,15 +119,15 @@ const CallRequest = () =>{
             <div className="row justify-content-center">
                 <span className="request_text mt-3">Оставьте заявку на звонок и я сам Вам перезвоню!</span>
 
-                <form onSubmit={(e)=>{e.preventDefault()}} action="" className="row justify-content-center mt-3 pb-3">
+                <form className="row justify-content-center mt-3 pb-3">
 
                     <div id="input_holder_1" className="col-lg-4 input_holder">
-                        <input className="input_field" id="input_field_1" type="text" placeholder='Имя'></input>
+                        <input className="input_field" id="input_field_1" type="text" name="caller_name" placeholder='Имя'></input>
                         <label htmlFor="input_field_1">Имя</label>
                     </div>
                     
                     <div id="input_holder_2" className="col-lg-4 input_holder">
-                        <input className="input_field" id="input_field_2" type="text" placeholder='Номер телефона'></input>
+                        <input className="input_field" id="input_field_2" type="text" name="caller_phone" placeholder='Номер телефона'></input>
                         <label htmlFor="input_field_2">Номер телефона</label>
                     </div>
                     
