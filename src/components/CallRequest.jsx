@@ -1,7 +1,9 @@
 import './CallRequest.scss'
 import $ from 'jquery'
 import { useEffect } from 'react'
+import IMask from 'imask'
 
+const config = require('../config.json')
 const CallRequest = () =>{
 
     const bigStyles = {
@@ -61,11 +63,9 @@ const CallRequest = () =>{
         }
     }
 
-    const maskOptions = { // создаем объект параметров
-        mask: '+{7}(999) 000-00-00' // задаем единственный параметр mask
-    }
 
     useEffect(async ()=>{
+        IMask(document.getElementById('input_field_2'), config.maskOptions)
         for(let i=1; i<=4;i++){
             $(`#input_field_${i}`).focus(()=>{
                 setFloatStyles(i);
@@ -153,13 +153,15 @@ const CallRequest = () =>{
 
     const sendMessage = (e)=>{
         e.preventDefault()
+        
         if($('#input_field_1').val() == ''){
-            $('.input_holder .name_validation').removeClass('validation_hidden')
+            $('#input_field_1').addClass('name_validation_invalid')
+            $('#input_holder_1 .name_validation').removeClass('validation_hidden')
         }
 
         if($('#input_field_2').val() == ''){
-            $('.input_holder .phone_validation').removeClass('validation_hidden')
-            
+            $('#input_field_2').addClass('phone_validation_invalid')
+            $('#input_holder_2 .phone_validation').removeClass('validation_hidden')
             return;
         }
         
@@ -171,8 +173,19 @@ const CallRequest = () =>{
             // beforeSend: function(request) {
             //     request.setRequestHeader("AAccess-Control-Allow-Origin", true);
             //   },
-
         })
+    }
+
+    const clearValidation = (e) =>{
+        if(e.target.id == 'input_field_1'){
+            $('#input_holder_1 .name_validation').addClass('validation_hidden')
+            $('#input_field_1').removeClass('name_validation_invalid')
+        }
+
+        if(e.target.id == 'input_field_2'){
+            $('#input_holder_2 .phone_validation').addClass('validation_hidden')
+            $('#input_field_2').removeClass('phone_validation_invalid')
+        }
     }
 
 
@@ -185,15 +198,15 @@ const CallRequest = () =>{
                 <form onSubmit={sendMessage} className="needs-validation row justify-content-center mt-3 pb-3" id="request_form">
 
                     <div id="input_holder_1" className="col-lg-4 input_holder">
-                        <input className="input_field" id="input_field_1" type="text" name="caller_name" placeholder='Имя'></input>
+                        <input onChange={clearValidation} className="input_field" id="input_field_1" type="text" name="caller_name" placeholder='Имя'></input>
                         <label htmlFor="input_field_1">Имя</label>
-                        <span className="validation name_validation validation_hidden">Было бы неплохо, если бы я знал как к Вам обращаться :)</span>
+                        <span className="validation name_validation val_main validation_hidden">Было бы неплохо, если бы я знал как к Вам обращаться :)</span>
                     </div>
                     
                     <div id="input_holder_2" className="col-lg-4 input_holder">
-                        <input className="input_field" id="input_field_2" type="text" name="caller_phone" placeholder='Номер телефона'></input>
+                        <input onChange={clearValidation} className="input_field" id="input_field_2" type="text" name="caller_phone" placeholder='Номер телефона'></input>
                         <label htmlFor="input_field_2">Номер телефона</label>
-                        <span className="validation phone_validation validation_hidden">Введите номер телефона</span>
+                        <span className="validation phone_validation val_main validation_hidden">Введите номер телефона</span>
                     </div>
                     
                     <button className='col-md-4 col-8 mt-5 request_btn'>Оставить заявку</button>

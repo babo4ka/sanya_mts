@@ -13,7 +13,7 @@
     position: relative;
     padding: 20px;
 
-    margin: 15px 5px;
+    margin: 30px 5px;
 }
 
 .input_field{
@@ -28,6 +28,18 @@
 
 .input_field:focus{
     outline: none;
+}
+
+.phone_validation_invalid{
+    box-shadow: 0px 0px 10px 1px rgb(255, 0, 0);
+    border: none;
+    border-radius: 5px;
+}
+
+.name_validation_invalid{
+    box-shadow: 0px 0px 10px 1px rgb(0, 255, 21);
+    border: none;
+    border-radius: 5px;
 }
 
 .input_holder label{

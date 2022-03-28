@@ -1,12 +1,21 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { change_consultation_tariff } from '../store/consultationReducer';
 import './TariffCards.scss';
+import $ from 'jquery'
 
 const TariffCard = (props) =>{
 
     const dispatch = useDispatch();
 
     const setConsultationTariff = () =>{
+        $('#input_holder_3 .name_validation').addClass('validation_hidden')
+        $('#input_field_3').removeClass('name_validation_invalid')
+
+        $('#input_holder_4 .phone_validation').addClass('validation_hidden')
+        $('#input_field_4').removeClass('phone_validation_invalid')
+
+        $('#input_field_3').html('')
+        $('#input_field_4').html('')
         dispatch(change_consultation_tariff(props.config.name));
     }
 
