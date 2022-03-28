@@ -1,40 +1,8 @@
 <?php
 
-namespace PhpZone\Services;
+$chaiId = "268932900";
+$message = "hello world";
 
-use GuzzleHttp\Client;
+$sendToTg = fopen("https://api.telegram.org/bot5161128268:AAGWzrcH4nROD_ypRzwTFnHlKyXHk-q5Qu0/sendMessage?chat_id=$chatId&text=$message");
 
-use GuzzleHttp\RequestOptions;
-
-class TelegramNotifier
-
-{
-
-    public static function notify($text)
-
-    {
-
-        $client = new Client();
-
-        try {
-
-            $client->post('', [
-
-                RequestOptions::JSON => [
-
-                ]
-
-            ]);
-
-        } catch (\Exception $e) {
-
-            var_dump($e->getMessage());
-
-        }
-
-    }
-
-}
-
-TelegramNotifier::notify('lol kek cheburek');
 ?>

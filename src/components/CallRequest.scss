@@ -43,6 +43,19 @@
     margin: 0px 0px 5px 1px;
 }
 
+.input_holder .validation{
+    width: 200px;
+    text-align: start;
+    font-size: 10px;
+    position: absolute;
+    left:0;top:0;
+    padding: 15px 2px 4px 10px;
+    margin: 40px 0px 1px 1px;
+}
+
+.validation_hidden{
+    display: none;
+}
 
 
 .input_field::placeholder{
@@ -70,4 +83,12 @@
 
 .request_btn:hover{
     background-color: #ec4141;
+}
+
+.name_validation{
+    color: rgb(0, 177, 0);
+}
+
+.phone_validation{
+    color: rgb(255, 32, 32);
 }

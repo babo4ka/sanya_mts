@@ -16,11 +16,13 @@ const ModalCallRequest = ()=>{
                             <div id="input_holder_3" className="col-lg-6 input_holder">
                                 <input className="input_field" id="input_field_3" type="text" name="caller_name" placeholder='Имя'></input>
                                 <label htmlFor="input_field_3">Имя</label>
+                                <span className="validation name_validation">Было бы неплохо, если бы я знал как к Вам обращаться :)</span>
                             </div>
                             
                             <div id="input_holder_4" className="col-lg-6 input_holder">
                                 <input className="input_field" id="input_field_4" type="text" name="caller_phone" placeholder='Номер телефона'></input>
                                 <label htmlFor="input_field_4">Номер телефона</label>
+                                <span className="validation phone_validation">Введите номер телефона</span>
                             </div>
                             
                             <button className='col-8 mt-5 request_btn'>Оставить заявку</button>
