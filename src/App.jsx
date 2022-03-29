@@ -2,7 +2,7 @@ import './App.scss';
 import location_icon from './icons/gray/location_gray.png'
 import Contact from './components/Contact';
 import TariffBtn from './components/TariffBtn';
-import { Provider, useDispatch } from 'react-redux';
+import { Provider} from 'react-redux';
 import { store } from './store/store';
 import { make_activewifitvph_action, make_activewifitv_action, make_activewifi_action } from './store/tariffBtnReducer';
 import TariffCards from './components/TariffCards';
@@ -12,6 +12,7 @@ import telegram_icon from './icons/black/telegram.png'
 import CallRequest from './components/CallRequest';
 import ModalCallRequest from './components/ModalCallRequest';
 import ReportWindow from './components/ReportWindow';
+
 const config = require('./config.json')
 
 function App() {
