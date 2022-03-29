@@ -28,7 +28,7 @@ const ReportWindow = () =>{
             </div>
 
             <div className="row justify-content-center">
-                <span className="col-lg-5 col-8">Опишите проблему или предложении ниже и мы примем во внимание ваше мнение :)</span>
+                <span className="col-lg-5 col-8">Опишите проблему или предложении ниже и мы постараемся принять меры :)</span>
             </div>
 
             <div className="row justify-content-center mt-3">
