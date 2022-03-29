@@ -11,6 +11,7 @@ import TariffDropDown from './components/TariffDropDown';
 import telegram_icon from './icons/black/telegram.png'
 import CallRequest from './components/CallRequest';
 import ModalCallRequest from './components/ModalCallRequest';
+import ReportWindow from './components/ReportWindow';
 const config = require('./config.json')
 
 function App() {
@@ -32,6 +33,10 @@ function App() {
             </div>
           </div>
           {/* конец локации */}
+
+          {/* ссылка к жалобам и предложениям */}
+          <a href="#report_form" id="link_to_report">Жми сюда если есть жалобы или предложения по работе сайта!</a>
+          {/* конец ссылки к жалобам и предложениям */}
 
           {/* контакты */}
           <Contact/>
@@ -69,14 +74,19 @@ function App() {
                   <h5 className="col-12 phone_tg">Александр:</h5>
                   <div className="col-12">
                       <span className="phone_tg" id="phone_holder">{config.contacts.phone}</span>
-                      <label className="phone_tg" htmlFor="phone_holder"><a href="https://google.com" target="_blank"><img src={telegram_icon} alt=""></img></a></label>
+                      <label className="phone_tg" htmlFor="phone_holder"><a href={config.telegram_link} target="_blank"><img src={telegram_icon} alt=""></img></a></label>
                   </div>
             </div>
           </div>
           {/* конец контактов снизу */}
 
+          {/* форма для жалоб и предложений */}
+          <ReportWindow/>
+          {/* конец формы для жалоб и предложений */}
 
+          {/* модальное окно для заказа звонка по конкретному тарифу */}
           <ModalCallRequest/>
+          {/* конец модального окна для заказа звонка по конкретному тарифу */}
         </div>
     </div>
     </Provider>

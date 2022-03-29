@@ -3,6 +3,7 @@ import './ModalCallRequest.scss'
 import $ from 'jquery'
 import { useEffect } from 'react'
 import IMask from 'imask'
+import close_icon from '../icons/red/krestik.png'
 const config = require('../config.json')
 const ModalCallRequest = ()=>{
 
@@ -31,8 +32,13 @@ const ModalCallRequest = ()=>{
             // beforeSend: function(request) {
             //     request.setRequestHeader("AAccess-Control-Allow-Origin", true);
             //   },
-
         })
+
+        $('#request_success_modal').css('display', 'block')
+        setTimeout(()=>{
+            $('#request_success_modal').css('display', 'none')
+            
+        }, 3500)
     }
 
     const clearValidation = (e) =>{
@@ -57,6 +63,9 @@ const ModalCallRequest = ()=>{
             <div className="modal-dialog modal-dialog-centered">
                 <div className="container-fluid modal-content">
                     <div className="row justify-content-center">
+
+                        <a className="close_icon_holder" data-bs-dismiss="modal"><img id="close_icon" src={close_icon}></img></a>
+
                         <span className="request_text mt-3">Заказать консультацию по тарифу:</span>
                         <span className="request_text">{tariff}</span>
                         <form id="modal_request_form" onSubmit={sendMessage} action="" className="row justify-content-center pb-3">
@@ -72,6 +81,8 @@ const ModalCallRequest = ()=>{
                                 <span className="validation phone_validation val_modal validation_hidden">Введите номер телефона</span>
                             </div>
                             
+                            <span className="mt-3 request_success" id="request_success_modal">Заявка успешно отправлена, я скоро Вам перезвоню :)</span>
+
                             <button className='col-8 mt-5 request_btn'>Оставить заявку</button>
                         </form>
                     </div>        

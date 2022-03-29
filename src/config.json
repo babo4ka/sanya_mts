@@ -164,6 +164,8 @@
 
     "maskOptions" : { 
         "mask": "+{7}(900) 000-00-00"
-    }
+    },
+
+    "telegram_link":"https://t.me/ya_tut_babo4ka"
     
 }

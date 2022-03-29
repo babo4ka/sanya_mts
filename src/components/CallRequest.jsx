@@ -165,7 +165,6 @@ const CallRequest = () =>{
             return;
         }
         
-        
         $.ajax({
             type: "POST",
             url:"http://localhost/TelegrammRequest.php",
@@ -174,19 +173,28 @@ const CallRequest = () =>{
             //     request.setRequestHeader("AAccess-Control-Allow-Origin", true);
             //   },
         })
+
+        $('#request_success_main').css('display', 'block')
+        setTimeout(()=>{
+            $('#request_success_main').css('display', 'none')
+            
+        }, 3500)
     }
 
+
     const clearValidation = (e) =>{
-        if(e.target.id == 'input_field_1'){
+        if(e.target.id == 'input_field_1' || e == 'input_field_1'){
             $('#input_holder_1 .name_validation').addClass('validation_hidden')
             $('#input_field_1').removeClass('name_validation_invalid')
         }
 
-        if(e.target.id == 'input_field_2'){
+        if(e.target.id == 'input_field_2' || e == 'input_field_1'){
             $('#input_holder_2 .phone_validation').addClass('validation_hidden')
             $('#input_field_2').removeClass('phone_validation_invalid')
         }
     }
+
+    
 
 
     return(
@@ -209,6 +217,8 @@ const CallRequest = () =>{
                         <span className="validation phone_validation val_main validation_hidden">Введите номер телефона</span>
                     </div>
                     
+                    <span className="mt-3 request_success" id="request_success_main">Заявка успешно отправлена, я скоро Вам перезвоню :)</span>
+
                     <button className='col-md-4 col-8 mt-5 request_btn'>Оставить заявку</button>
                 </form>
                 

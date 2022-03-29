@@ -1,0 +1,21 @@
+#report_btn{
+    border: none;
+    background-color: #DD0000;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+#report_btn:hover{
+    background-color: #ec4141;
+}
+
+#report_area{
+    border: none;
+      border-bottom: 1px solid #000000;
+      border-radius: 0;
+      border-top-left-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
+      background-color: #acacac67;
+}

@@ -6,7 +6,6 @@ const config = require('../config.json')
 
 const Contact = () =>{
     
-
     return(
         <div className="contacts_info_holder mt-5 container">
             <div className="row justify-content-center">
@@ -18,7 +17,7 @@ const Contact = () =>{
                     <h5 className="col-12 phone_tg">{config.contacts.agent}</h5>
                     <div className="col-12">
                         <span className="phone_tg" id="phone_holder">{config.contacts.phone}</span>
-                        <label className="phone_tg" htmlFor="phone_holder"><a href="https://google.com" target="_blank"><img src={telegram_icon} alt=""></img></a></label>
+                        <label className="phone_tg" htmlFor="phone_holder"><a href={config.telegram_link} target="_blank"><img src={telegram_icon} alt=""></img></a></label>
                     </div>
                 </div>
             </div>
