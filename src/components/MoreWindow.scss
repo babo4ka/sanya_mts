@@ -21,3 +21,12 @@
 .more_modal_content{
     width: 900px;
 }
+
+.more_val_info{
+    display: flex;
+    flex-direction: column;
+}
+
+#more_modal .modal-dialog .modal-content .modal-body{
+    padding: 25px;
+}

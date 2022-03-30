@@ -47,11 +47,11 @@ const MoreWindow = () =>{
                         
                         <div className="row text-start">
                             {more_about_tariff.map((info, infoKey) =>(
-                               <div className="col-4 row">
+                               <div className="col-4 row mt-4 more_val_info">
                                    <span className="more_val_name">{info.name}</span>
 
                                     {Object.keys(info).filter(key => key!=='name').map(key => (
-                                        <div className="row">
+                                        <div className="more_val_info">
                                             <span className="more_val_content_name">{content.get(key)}</span>
                                             <span className="more_val_content">{info[key.toString()]}</span>
                                         </div>
