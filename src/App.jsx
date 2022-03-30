@@ -12,6 +12,7 @@ import telegram_icon from './icons/black/telegram.png'
 import CallRequest from './components/CallRequest';
 import ModalCallRequest from './components/ModalCallRequest';
 import ReportWindow from './components/ReportWindow';
+import MoreWindow from './components/MoreWindow';
 
 const config = require('./config.json')
 
@@ -88,6 +89,10 @@ function App() {
           {/* модальное окно для заказа звонка по конкретному тарифу */}
           <ModalCallRequest/>
           {/* конец модального окна для заказа звонка по конкретному тарифу */}
+
+          {/* подробнее */}
+          <MoreWindow/>
+          {/* конец подробнее */}
         </div>
     </div>
     </Provider>

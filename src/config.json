@@ -32,7 +32,20 @@
                         "value":"Аренда роутера – 99 руб./месяц"
                     }
                 ],
-                "price": 350
+                "price": 350,
+                "more":[
+                    {
+                        "name":"Интернет",
+                        "connect_type":"Ethernet",
+                        "connect_price":"Бесплатно",
+                        "speed":"100 МБит/с"
+                    },
+                    {
+                        "name":"Оборудование",
+                        "router_rent":"99 руб/мес",
+                        "router_price":"2700 руб."
+                    }
+                ]
             },
             {
                 "type":"Интернет",
@@ -49,7 +62,20 @@
                         "value":"Аренда роутера – 20 руб./месяц"
                     }
                 ],
-                "price": 500
+                "price": 500,
+                "more":[
+                    {
+                        "name":"Интернет",
+                        "connect_type":"Ethernet",
+                        "connect_price":"Бесплатно",
+                        "speed":"500 МБит/с"
+                    },
+                    {
+                        "name":"Оборудование",
+                        "router_rent":"20 руб/мес",
+                        "router_price":"2700 руб."
+                    }
+                ]
             }
         ],
         "wifi_tv":[
@@ -73,7 +99,35 @@
                         "value":"Аренда роутера – 99 руб./месяц"
                     }
                 ],
-                "price": 560
+                "price": 560,
+                "more":[
+                    {
+                        "name":"Интернет",
+                        "connect_type":"Ethernet",
+                        "connect_price":"Бесплатно",
+                        "speed":"100 МБит/с"
+                    },
+                    {
+                        "name":"Оборудование",
+                        "router_rent":"99 руб/мес",
+                        "router_price":"2700 руб."
+                    },
+                    {
+                        "name":"ТВ",
+                        "multiroom":"50 руб/мес",
+                        "multiscreen":"Бесплатно",
+                        "hd_channels":"111",
+                        "sd_channels":"111"
+                    },
+                    {
+                        "name":"ТВ оборудование",
+                        "second_box_price":"110 руб/мес",
+                        "box_rent":"10 руб/мес",
+                        "box_price":"2900 руб.",
+                        "cam_module":"1300 руб.",
+                        "cam_module_rent":"10 руб/мес"
+                    }
+                ]
             },
             {
                 "type":"Интернет+ТВ",
@@ -95,7 +149,35 @@
                         "value":"Аренда роутера – 20 руб./месяц"
                     }
                 ],
-                "price": 710
+                "price": 710,
+                "more":[
+                    {
+                        "name":"Интернет",
+                        "connect_type":"Ethernet",
+                        "connect_price":"Бесплатно",
+                        "speed":"500 МБит/с"
+                    },
+                    {
+                        "name":"Оборудование",
+                        "router_rent":"20 руб/мес",
+                        "router_price":"2700 руб."
+                    },
+                    {
+                        "name":"ТВ",
+                        "multiroom":"Бесплатно",
+                        "multiscreen":"Бесплатно",
+                        "hd_channels":"111",
+                        "sd_channels":"111"
+                    },
+                    {
+                        "name":"ТВ оборудование",
+                        "second_box_price":"110 руб/мес",
+                        "box_rent":"10 руб/мес",
+                        "box_price":"2900 руб.",
+                        "cam_module":"1300 руб.",
+                        "cam_module_rent":"10 руб/мес"
+                    }
+                ]
             }
         ],
         "wifi_tv_ph":[
@@ -127,7 +209,41 @@
                         "value":"Онлайн кинотеатр KION"
                     }
                 ],
-                "price": 650
+                "price": 650,
+                "more":[
+                    {
+                        "name":"Интернет",
+                        "connect_type":"Ethernet",
+                        "connect_price":"Бесплатно",
+                        "speed":"100 МБит/с"
+                    },
+                    {
+                        "name":"Оборудование",
+                        "router_rent":"99 руб/мес",
+                        "router_price":"2700 руб."
+                    },
+                    {
+                        "name":"ТВ",
+                        "multiroom":"50 руб/мес",
+                        "multiscreen":"Бесплатно",
+                        "hd_channels":"111",
+                        "sd_channels":"111"
+                    },
+                    {
+                        "name":"ТВ оборудование",
+                        "second_box_price":"110 руб/мес",
+                        "box_rent":"10 руб/мес",
+                        "box_price":"2900 руб.",
+                        "cam_module":"1300 руб.",
+                        "cam_module_rent":"10 руб/мес"
+                    },
+                    {
+                        "name":"Мобильная связь",
+                        "calls":"1100 мин/мес",
+                        "internet":"30 Гб",
+                        "sms":"100 шт./мес"
+                    }
+                ]
             },
             {
                 "type":"Интернет+ТВ+Мобайл",
@@ -157,7 +273,41 @@
                         "value":"Онлайн кинотеатр KION"
                     }
                 ],
-                "price": 790
+                "price": 790,
+                "more":[
+                    {
+                        "name":"Интернет",
+                        "connect_type":"Ethernet",
+                        "connect_price":"Бесплатно",
+                        "speed":"100 МБит/с"
+                    },
+                    {
+                        "name":"Оборудование",
+                        "router_rent":"99 руб/мес",
+                        "router_price":"2700 руб."
+                    },
+                    {
+                        "name":"ТВ",
+                        "multiroom":"Бесплатно",
+                        "multiscreen":"Бесплатно",
+                        "hd_channels":"111",
+                        "sd_channels":"111"
+                    },
+                    {
+                        "name":"ТВ оборудование",
+                        "second_box_price":"110 руб/мес",
+                        "box_rent":"10 руб/мес",
+                        "box_price":"2900 руб.",
+                        "cam_module":"1300 руб.",
+                        "cam_module_rent":"10 руб/мес"
+                    },
+                    {
+                        "name":"Мобильная связь",
+                        "calls":"2000 мин/мес",
+                        "internet":"50 Гб",
+                        "sms":"500 шт./мес"
+                    }
+                ]
             }
         ]
     },

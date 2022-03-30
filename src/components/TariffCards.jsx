@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { change_consultation_tariff } from '../store/consultationReducer';
 import './TariffCards.scss';
 import $ from 'jquery'
+import { change_index } from '../store/tariffCardReducer';
 
 const TariffCard = (props) =>{
 
@@ -17,6 +18,10 @@ const TariffCard = (props) =>{
         $('#input_field_3').html('')
         $('#input_field_4').html('')
         dispatch(change_consultation_tariff(props.config.name));
+    }
+
+    const changeIndex = () =>{
+        dispatch(change_index(props.index))
     }
 
     return(
@@ -61,7 +66,7 @@ const TariffCard = (props) =>{
                     
                     <div className=" gen_btns mt-2 mb-2">
                         <button onClick={setConsultationTariff} data-bs-toggle="modal" data-bs-target="#request_modal" className="col-6 get_btn connect_btn">Подключить</button>
-                        <button className="col-6 get_btn more_btn">Подробнее</button>
+                        <button onClick={changeIndex} data-bs-toggle="modal" data-bs-target="#more_modal" className="col-6 get_btn more_btn">Подробнее</button>
                     </div>
                     
                 </div>
@@ -99,7 +104,7 @@ const TariffCard = (props) =>{
                     {/* подключение */}
                     <div className=" gen_btns mt-2 mb-2">
                         <button onClick={setConsultationTariff} data-bs-toggle="modal" data-bs-target="#request_modal" className="col-6 get_btn connect_btn">Подключить</button>
-                        <button className="col-6 get_btn more_btn">Подробнее</button>
+                        <button onClick={changeIndex} data-bs-toggle="modal" data-bs-target="#more_modal" className="col-6 get_btn more_btn">Подробнее</button>
                     </div>
                     
                 </div>
@@ -110,7 +115,6 @@ const TariffCard = (props) =>{
 
 const TariffCards = () =>{
 
-    const dispatch = useDispatch();
     const cardsArray = useSelector(state => state.cards.currentCards)
 
 
@@ -118,8 +122,8 @@ const TariffCards = () =>{
 
         <div id="tariff_cards" className="row justify-content-center mt-5 tariffs_cards_holder">
             {/* проходимся по массиву тарифов и создаём карточку для каждого */}
-            {cardsArray.map(tariff=>(
-                <TariffCard key={tariff.name} config={tariff}/>
+            {cardsArray.map((tariff, tariffI)=>(
+                <TariffCard key={tariff.name} config={tariff} index={tariffI}/>
             ))}
         </div>
 
