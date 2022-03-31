@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import './MoreWindow.scss'
+import close_icon from '../icons/red/krestik.png'
 
 const MoreWindow = () =>{
 
@@ -36,11 +37,11 @@ const MoreWindow = () =>{
                 <div class="modal-content">
                     <div className="container modal-body">
                         <div className="row">
-                            
+                            <a className="close_icon_holder" data-bs-dismiss="modal"><img id="close_icon" src={close_icon}></img></a>
                         </div>
                         
                         <div className="row text-start" id="more_name_price_holder">
-                            <span className='col-12 more_header'>{tariff.name}</span>
+                            <span className='col-12 more_header'>Тариф {tariff.name}</span>
                             <span className='col-12 more_header'>{tariff.price} руб/мес</span>
                         </div>
 
