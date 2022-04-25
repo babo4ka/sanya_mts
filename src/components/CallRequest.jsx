@@ -154,10 +154,10 @@ const CallRequest = () =>{
     const sendMessage = (e)=>{
         e.preventDefault()
         
-        if($('#input_field_1').val() == ''){
-            $('#input_field_1').addClass('name_validation_invalid')
-            $('#input_holder_1 .name_validation').removeClass('validation_hidden')
-        }
+        // if($('#input_field_1').val() == ''){
+        //     $('#input_field_1').addClass('name_validation_invalid')
+        //     $('#input_holder_1 .name_validation').removeClass('validation_hidden')
+        // }
 
         if($('#input_field_2').val() == ''){
             $('#input_field_2').addClass('phone_validation_invalid')
@@ -169,9 +169,6 @@ const CallRequest = () =>{
             type: "POST",
             url:"http://localhost/TelegrammRequest.php",
             data: $('#request_form').serialize(),
-            // beforeSend: function(request) {
-            //     request.setRequestHeader("AAccess-Control-Allow-Origin", true);
-            //   },
         })
 
         $('#request_success_main').css('display', 'block')
@@ -183,10 +180,10 @@ const CallRequest = () =>{
 
 
     const clearValidation = (e) =>{
-        if(e.target.id == 'input_field_1' || e == 'input_field_1'){
-            $('#input_holder_1 .name_validation').addClass('validation_hidden')
-            $('#input_field_1').removeClass('name_validation_invalid')
-        }
+        // if(e.target.id == 'input_field_1' || e == 'input_field_1'){
+        //     $('#input_holder_1 .name_validation').addClass('validation_hidden')
+        //     $('#input_field_1').removeClass('name_validation_invalid')
+        // }
 
         if(e.target.id == 'input_field_2' || e == 'input_field_1'){
             $('#input_holder_2 .phone_validation').addClass('validation_hidden')
@@ -208,7 +205,7 @@ const CallRequest = () =>{
                     <div id="input_holder_1" className="col-lg-4 input_holder">
                         <input onChange={clearValidation} className="input_field" id="input_field_1" type="text" name="caller_name" placeholder='Имя'></input>
                         <label htmlFor="input_field_1">Имя</label>
-                        <span className="validation name_validation val_main validation_hidden">Было бы неплохо, если бы я знал как к Вам обращаться :)</span>
+                        <span className="validation name_validation val_main">Было бы неплохо, если бы я знал как к Вам обращаться :)</span>
                     </div>
                     
                     <div id="input_holder_2" className="col-lg-4 input_holder">

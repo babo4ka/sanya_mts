@@ -12,15 +12,15 @@ const ModalCallRequest = ()=>{
     const sendMessage = (e)=>{
         e.preventDefault()
         const toSendData = `${$('#modal_request_form').serialize()}&tariff=${tariff}`
-        if($('#input_field_3').val() == ''){
-            $('#input_field_3').addClass('name_validation_invalid')
-            $('.input_holder .name_validation').removeClass('validation_hidden')
+        // if($('#input_field_3').val() == ''){
+        //     $('#input_field_3').addClass('name_validation_invalid')
+        //     $('.input_holder .name_validation').removeClass('validation_hidden')
             
-        }
+        // }
 
         if($('#input_field_4').val() == ''){
             $('#input_field_4').addClass('phone_validation_invalid')
-            $('.input_holder .phone_validation').removeClass('validation_hidden')
+            $('#input_holder_4 .phone_validation').removeClass('validation_hidden')
             return;
         }
         
@@ -42,10 +42,10 @@ const ModalCallRequest = ()=>{
     }
 
     const clearValidation = (e) =>{
-        if(e.target.id == 'input_field_3'){
-            $('#input_holder_3 .name_validation').addClass('validation_hidden')
-            $('#input_field_3').removeClass('name_validation_invalid')
-        }
+        // if(e.target.id == 'input_field_3'){
+        //     $('#input_holder_3 .name_validation').addClass('validation_hidden')
+        //     $('#input_field_3').removeClass('name_validation_invalid')
+        // }
 
         if(e.target.id == 'input_field_4'){
             $('#input_holder_4 .phone_validation').addClass('validation_hidden')
@@ -59,7 +59,7 @@ const ModalCallRequest = ()=>{
 
 
     return(
-        <div className="modal" id="request_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal" id="request_modal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
                 <div className="container-fluid modal-content">
                     <div className="row justify-content-center">
@@ -72,7 +72,7 @@ const ModalCallRequest = ()=>{
                             <div id="input_holder_3" className="col-lg-6 input_holder">
                                 <input onChange={clearValidation} className="input_field" id="input_field_3" type="text" name="caller_name" placeholder='Имя'></input>
                                 <label htmlFor="input_field_3">Имя</label>
-                                <span className="validation name_validation val_modal validation_hidden">Было бы неплохо, если бы я знал как к Вам обращаться :)</span>
+                                <span className="validation name_validation val_modal">Было бы неплохо, если бы я знал как к Вам обращаться</span>
                             </div>
                             
                             <div id="input_holder_4" className="col-lg-6 input_holder">

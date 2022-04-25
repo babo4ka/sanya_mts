@@ -32,9 +32,9 @@ const MoreWindow = () =>{
 
     return (
         
-        <div class="modal fade" id="more_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
-                <div class="modal-content">
+        <div className="modal fade" id="more_modal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
+                <div className="modal-content">
                     <div className="container modal-body">
                         <div className="row">
                             <a className="close_icon_holder" data-bs-dismiss="modal"><img id="close_icon" src={close_icon}></img></a>
@@ -48,11 +48,11 @@ const MoreWindow = () =>{
                         
                         <div className="row text-start">
                             {more_about_tariff.map((info, infoKey) =>(
-                               <div className="col-4 row mt-4 more_val_info">
+                               <div key={infoKey} className="col-4 row mt-4 more_val_info">
                                    <span className="more_val_name">{info.name}</span>
 
                                     {Object.keys(info).filter(key => key!=='name').map(key => (
-                                        <div className="more_val_info">
+                                        <div key={key} className="more_val_info">
                                             <span className="more_val_content_name">{content.get(key)}</span>
                                             <span className="more_val_content">{info[key.toString()]}</span>
                                         </div>

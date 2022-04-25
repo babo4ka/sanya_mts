@@ -9,11 +9,11 @@ const TariffCard = (props) =>{
     const dispatch = useDispatch();
 
     const setConsultationTariff = () =>{
-        $('#input_holder_3 .name_validation').addClass('validation_hidden')
-        $('#input_field_3').removeClass('name_validation_invalid')
+        // $('#input_holder_3 .name_validation').addClass('validation_hidden')
+        // $('#input_field_3').removeClass('name_validation_invalid')
 
-        $('#input_holder_4 .phone_validation').addClass('validation_hidden')
-        $('#input_field_4').removeClass('phone_validation_invalid')
+        // $('#input_holder_4 .phone_validation').addClass('validation_hidden')
+        // $('#input_field_4').removeClass('phone_validation_invalid')
 
         $('#input_field_3').html('')
         $('#input_field_4').html('')
@@ -26,7 +26,7 @@ const TariffCard = (props) =>{
 
     return(
         // контейнер для карточки
-        <div key={props.key} className="col-lg-6 col-10 container-fluid tariff_card_holder">
+        <div className="col-lg-6 col-10 container-fluid tariff_card_holder">
             <div className="row justify-content-center">
                 {/* левая колонка */}
                 <div className="col-6 card_cols left_col text-start">

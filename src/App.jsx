@@ -13,10 +13,12 @@ import CallRequest from './components/CallRequest';
 import ModalCallRequest from './components/ModalCallRequest';
 import ReportWindow from './components/ReportWindow';
 import MoreWindow from './components/MoreWindow';
+import { useEffect } from 'react';
 
 const config = require('./config.json')
 
 function App() {
+
 
   return (
     <Provider store={store}>
