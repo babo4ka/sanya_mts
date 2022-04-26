@@ -2,49 +2,70 @@ import './TariffBtn.scss'
 import $ from 'jquery'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { set_tags_action } from '../store/tariffBtnReducer'
+import { store } from '../store/store'
 const config = require('../config.json')
 
-const TariffBtn = (props) =>{
+const TariffBtn = ({id, tag}) =>{
 //1043
     const dispatch = useDispatch();
-    const stateObject = useSelector(state => state.btns.groups[props.groupI])
 
-    const pics = Object.keys(stateObject).filter(key => (
-        key !== 'config' && key !== 'name'
-    )).map(key =>(
-        stateObject[key]
-    ))
+    const [currentTags, setCurrentTags] = useState(useSelector(state => state.btns.tags))
+
+    const ownTag = tag
+
+    let className = `${config.tariffNav.inactive.className} col-2 btn_holder`
+
+    const picture = require(`../icons/gray/${id}_gray.png`)
 
     useEffect(async ()=>{
 
-        $(`#${props.id}`).on('click', ()=>{
-            $("#tariff_cards").fadeToggle(200, 'linear', function(){
-                dispatch(props.choose())
-            })
+        $(`#${id}`).on('click', ()=>{
+            console.log(currentTags)
+            const contains = currentTags.includes(ownTag)
+            console.log(currentTags.includes(ownTag))
+            $(`#${id}`)
+            .toggleClass(`${config.tariffNav.inactive.className}`)
+            .toggleClass(`${config.tariffNav.active.className}`)
 
-            dispatch(props.makeActive())
+
+            // $("#tariff_cards").fadeToggle(200, 'linear', function(){
+            //     let tagsToDispatch
+            //     if(!contains){
+            //         tagsToDispatch = currentTags
+            //         tagsToDispatch.push(ownTag)
+            //     }else{
+            //         tagsToDispatch = currentTags.filter(tag => tag !== ownTag)
+            //     }
+            //     console.log(tagsToDispatch)
+            //     dispatch(set_tags_action(tagsToDispatch))
+            // })
+
+            let tagsToDispatch
+            if(!currentTags.includes(ownTag)){
+                tagsToDispatch = currentTags
+                tagsToDispatch.push(ownTag)
+            }else{
+                tagsToDispatch = currentTags.filter(tag => tag !== ownTag)
+            }
+            console.log(tagsToDispatch)
+            dispatch(set_tags_action(tagsToDispatch))
+
+            setCurrentTags(tagsToDispatch)
+
+            console.log(store.getState().btns.tags)
         
             $("#tariff_cards").fadeToggle(200, 'linear')
         })
     }, [])
 
 
-    let className = `${stateObject.config.className} col-2 container btn_holder`
-    let active = stateObject.config.active
+    
 
     return(
         // контейнер кнопки навигации
-        <div className={className} id={props.id}>
-            <div className="row justify-content-center mb-3" id="tariffs_icons">
-                {/* иконки тарифа */}
-                {pics.map(pic=>(
-                    <img key={pic} className="col-6 tariff_icon" src={pic} alt=""></img>
-                ))}
-            </div>
-            {/* название тарифа   */}
-            <div className="row justify-content-center" id="tariffs_name">
-                <span className="col-12 text-truncate w-100 p-0">{props.name}</span>
-            </div>
+        <div className={className} id={id}>
+            <img className="col-6 tariff_icon" src={picture} alt=""></img>
         </div>
     )
 }
