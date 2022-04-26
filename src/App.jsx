@@ -54,7 +54,7 @@ function App() {
 
           {/* навигация по тарифам */}
 
-          <div className="row justify-content-center mt-5 tariffs_nav_holder">
+          <div className="row justify-content-start mt-5 tariffs_nav_holder">
             {/* <TariffBtn name="Интернет" id="internet" className={config.tariffNav.active.className} active={true} groupI={0} choose={()=>choose_wifi()} makeActive={()=>make_activewifi_action()}/>
             <TariffBtn name="Интернет+ТВ" id="internet_tv" className={config.tariffNav.inactive.className} active={false} groupI={1} choose={()=>choose_wifitv()} makeActive={()=>make_activewifitv_action()}/>
             <TariffBtn name="Интернет+ТВ+Мобайл" id="internet_tv_phone" className={config.tariffNav.inactive.className} active={false} groupI={2} choose={()=>choose_wifitvph()} makeActive={()=>make_activewifitvph_action()}/>

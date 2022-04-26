@@ -10,24 +10,35 @@ const TariffBtn = ({id, tag}) =>{
 //1043
     const dispatch = useDispatch();
 
-    const [currentTags, setCurrentTags] = useState(useSelector(state => state.btns.tags))
+    // const [currentTags, setCurrentTags] = useState(store.getState().btns.tags)
+    // let currentTags = useSelector(state => state.btns.tags)
 
     const ownTag = tag
 
-    let className = `${config.tariffNav.inactive.className} col-2 btn_holder`
+    let className = `${config.tariffNav.inactive.className} btn_holder col-1 align-items-center justify-content-center row`
 
-    const picture = require(`../icons/gray/${id}_gray.png`)
+    const [color, setColor] = useState('gray')
+
+    const picture = require(`../icons/${color}/${id}_${color}.png`)
 
     useEffect(async ()=>{
 
         $(`#${id}`).on('click', ()=>{
+            let currentTags = store.getState().btns.tags
             console.log(currentTags)
-            const contains = currentTags.includes(ownTag)
-            console.log(currentTags.includes(ownTag))
             $(`#${id}`)
             .toggleClass(`${config.tariffNav.inactive.className}`)
             .toggleClass(`${config.tariffNav.active.className}`)
 
+            setColor(prev=>{
+                switch(prev){
+                    case 'white':
+                        return 'gray'
+
+                    case 'gray':
+                        return 'white'
+                }
+            })
 
             // $("#tariff_cards").fadeToggle(200, 'linear', function(){
             //     let tagsToDispatch
@@ -51,7 +62,7 @@ const TariffBtn = ({id, tag}) =>{
             console.log(tagsToDispatch)
             dispatch(set_tags_action(tagsToDispatch))
 
-            setCurrentTags(tagsToDispatch)
+            currentTags = tagsToDispatch
 
             console.log(store.getState().btns.tags)
         
@@ -65,7 +76,7 @@ const TariffBtn = ({id, tag}) =>{
     return(
         // контейнер кнопки навигации
         <div className={className} id={id}>
-            <img className="col-6 tariff_icon" src={picture} alt=""></img>
+            <img className="tariff_icon" src={picture} alt=""></img>
         </div>
     )
 }
