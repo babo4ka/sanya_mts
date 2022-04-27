@@ -31,13 +31,9 @@ const TariffBtn = ({id, tag}) =>{
             .toggleClass(`${config.tariffNav.active.className}`)
 
             setColor(prev=>{
-                switch(prev){
-                    case 'white':
-                        return 'gray'
+                if(prev === 'white')return 'gray'
+                return 'white'
 
-                    case 'gray':
-                        return 'white'
-                }
             })
 
             // $("#tariff_cards").fadeToggle(200, 'linear', function(){
