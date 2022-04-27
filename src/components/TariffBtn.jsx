@@ -9,9 +9,8 @@ const config = require('../config.json')
 const TariffBtn = ({id, tag}) =>{
 //1043
     const dispatch = useDispatch();
+    //const setCards = useSelector(state => state.funcs.setCards)
 
-    // const [currentTags, setCurrentTags] = useState(store.getState().btns.tags)
-    // let currentTags = useSelector(state => state.btns.tags)
 
     const ownTag = tag
 
@@ -25,7 +24,6 @@ const TariffBtn = ({id, tag}) =>{
 
         $(`#${id}`).on('click', ()=>{
             let currentTags = store.getState().btns.tags
-            console.log(currentTags)
             $(`#${id}`)
             .toggleClass(`${config.tariffNav.inactive.className}`)
             .toggleClass(`${config.tariffNav.active.className}`)
@@ -33,34 +31,24 @@ const TariffBtn = ({id, tag}) =>{
             setColor(prev=>{
                 if(prev === 'white')return 'gray'
                 return 'white'
-
             })
 
-            // $("#tariff_cards").fadeToggle(200, 'linear', function(){
-            //     let tagsToDispatch
-            //     if(!contains){
-            //         tagsToDispatch = currentTags
-            //         tagsToDispatch.push(ownTag)
-            //     }else{
-            //         tagsToDispatch = currentTags.filter(tag => tag !== ownTag)
-            //     }
-            //     console.log(tagsToDispatch)
-            //     dispatch(set_tags_action(tagsToDispatch))
-            // })
+            $("#tariff_cards").fadeToggle(200, 'linear', function(){
+                let tagsToDispatch
+                if(!currentTags.includes(ownTag)){
+                    tagsToDispatch = currentTags
+                    tagsToDispatch.push(ownTag)
+                }else{
+                    tagsToDispatch = currentTags.filter(tag => tag !== ownTag)
+                }
+                dispatch(set_tags_action(tagsToDispatch))
+    
+                currentTags = tagsToDispatch
 
-            let tagsToDispatch
-            if(!currentTags.includes(ownTag)){
-                tagsToDispatch = currentTags
-                tagsToDispatch.push(ownTag)
-            }else{
-                tagsToDispatch = currentTags.filter(tag => tag !== ownTag)
-            }
-            console.log(tagsToDispatch)
-            dispatch(set_tags_action(tagsToDispatch))
+                //setCards()
+            })
 
-            currentTags = tagsToDispatch
-
-            console.log(store.getState().btns.tags)
+            
         
             $("#tariff_cards").fadeToggle(200, 'linear')
         })

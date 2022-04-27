@@ -1,7 +1,7 @@
 // основное
 .tariff_card_holder{
     max-width: 430px;
-    min-height: 200px;
+    min-height: 150px;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     background-color: black;
@@ -53,14 +53,15 @@
     border: 1px solid white;
     border-radius: 15px;
     // padding: 5px;
-    padding: 5px 10px;
+    padding: 5px 5px;
     // width: 150px;
     margin-left: auto;
     margin-right: 0px;
+
 }
 
 .type_holder span{
-    font-size: 15px;
+    font-size: 10px;
 }
 
 .extra_holder{
