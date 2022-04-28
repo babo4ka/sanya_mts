@@ -1,7 +1,10 @@
+@import "./colors.scss";
+
+
 #report_btn{
     border: none;
-    background-color: #DD0000;
-    color: white;
+    background-color: $red;
+    color: $white;
     font-weight: 500;
     font-size: 20px;
     border-radius: 5px;

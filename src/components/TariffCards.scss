@@ -1,10 +1,12 @@
+@import "./colors.scss";
+
 // основное
 .tariff_card_holder{
     max-width: 430px;
     min-height: 150px;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    background-color: black;
+    background-color: $black;
 
     padding: 10px 10px;
 
@@ -15,7 +17,7 @@
 
 //левая колонка
 .card_cols{
-    color: white;
+    color: $white;
     position: relative;
 }
 
@@ -116,8 +118,8 @@
 .connect_btn{
     border: none;
     border-radius: 5px;
-    color: white;
-    background-color: #DD0000;
+    color: $white;
+    background-color: $red;
 }
 
 .connect_btn:hover{
@@ -125,7 +127,7 @@
 }
 
 .more_btn{
-    color: #DD0000;
+    color: $red;
     border: none;
     background: none;
 }
