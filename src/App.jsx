@@ -16,6 +16,7 @@ const config = require('./config.json')
 function App() {
 
   const [tariffsToShow, setTariffsToShow] = useState(store.getState().cards.tariffCards)
+  const [choosedTags, setChoosedTags] = useState(store.getState().btns.tags)
 
   const setCards = () =>{
     let tags = store.getState().btns.tags
@@ -33,7 +34,14 @@ function App() {
   })
   
     setTariffsToShow(cards.filter(el => el!=null))
+    setChoosedTags(store.getState().btns.tags)
   }
+
+  const tariffsTranslate = new Map([
+    ['wifi', 'интернет'],
+    ['tv', 'ТВ'],
+    ['mobile', 'мобайл']
+  ])
 
   return (
     <Provider store={store}>
@@ -68,16 +76,21 @@ function App() {
           {/* конец акции */}
 
           {/* навигация по тарифам */}
-
+          
           <div className="row justify-content-start mt-5 tariffs_nav_holder">
-            {/* <TariffBtn name="Интернет" id="internet" className={config.tariffNav.active.className} active={true} groupI={0} choose={()=>choose_wifi()} makeActive={()=>make_activewifi_action()}/>
-            <TariffBtn name="Интернет+ТВ" id="internet_tv" className={config.tariffNav.inactive.className} active={false} groupI={1} choose={()=>choose_wifitv()} makeActive={()=>make_activewifitv_action()}/>
-            <TariffBtn name="Интернет+ТВ+Мобайл" id="internet_tv_phone" className={config.tariffNav.inactive.className} active={false} groupI={2} choose={()=>choose_wifitvph()} makeActive={()=>make_activewifitvph_action()}/>
-            <TariffDropDown/> */}
+            <span className="text-start mb-3 tags_info">Выберите нужные теги для поиска тарифа: </span>
             <TariffBtn id="wifi" tag="wifi" setCardsToShow={setCards}/>
             <TariffBtn id="tv" tag="tv" setCardsToShow={setCards}/>
             <TariffBtn id="phone" tag="mobile" setCardsToShow={setCards}/>
+            <span className="text-start mt-5 tags_info">
+              {choosedTags.length > 0?(
+                `Вот ${tariffsToShow.length} тарифов, которые содержат теги: ${choosedTags.map(tag=>tariffsTranslate.get(tag))}`
+              ):(
+                `Не выбрано ни одного тега, вот все тарифы`
+              )}
+            </span>
           </div>
+         
           {/* конец навигации по тарифам */}
 
           {/* тарифы */}
