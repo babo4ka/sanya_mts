@@ -3,9 +3,8 @@ import { change_consultation_tariff } from '../store/consultationReducer';
 import './TariffCards.scss';
 import $ from 'jquery'
 import { change_index } from '../store/tariffCardReducer';
-import { useEffect, useState } from 'react';
-import { store } from '../store/store';
-import { set_cards_action } from '../store/funcsReducer';
+import { useState } from 'react';
+
 
 const TariffCard = ({ config, index }) => {
 
@@ -29,6 +28,16 @@ const TariffCard = ({ config, index }) => {
         dispatch(change_index(index))
     }
 
+    const [angle, setAngle] = useState(0)
+    const toggleAngle = (index) => {
+        $(`#extra_shower_${index} img`).css('transform', `rotate(${angle}deg)`)
+        setAngle(Math.abs(angle-180))
+    }
+
+    const showExtra = (index) => {
+        toggleAngle(index)
+    }
+
     return (
         // контейнер для карточки
         <div className="col-lg-6 col-10 container-fluid tariff_card_holder">
@@ -50,6 +59,10 @@ const TariffCard = ({ config, index }) => {
                             </div>
                         </div>
                     ))}
+                    <div className="extra_info_holder">
+                        <button id={`extra_shower_${index}`} onClick={()=>showExtra(index)}><img src={require('../icons/white/arrow.png')} alt='' /></button>
+                        <span>Дополнительно...</span>
+                    </div>
                 </div>
 
                 {/* правая колонка */}
@@ -59,12 +72,15 @@ const TariffCard = ({ config, index }) => {
                         <span className="text-end">{config.type}</span>
                     </div>
                     {/* оборудование */}
-                    <div className="extra_holder mt-2">
-                        <span>Оборудование:</span>
-                        {config.equip?.map(eq => (
-                            <span className="mt-2" key={eq.value}>{eq.value}</span>
-                        ))}
-                    </div>
+                    {config.equip ? (
+                        <div className="extra_holder mt-2">
+                            <span>Оборудование:</span>
+                            {config.equip.map(eq => (
+                                <span className="mt-2" key={eq.value}>{eq.value}</span>
+                            ))}
+                        </div>
+                    ) : ("")}
+
                     {/* цена тарифа */}
                     <div className="mt-2">
                         <span className="price">{config.price} руб./месяц</span>
@@ -81,27 +97,7 @@ const TariffCard = ({ config, index }) => {
     )
 }
 
-const TariffCards = ({cardsToRender}) => {
-    console.log(cardsToRender)
-    
-
-    // const dispatch = useDispatch()
-    // useEffect(async () =>{
-    //     dispatch(set_cards_action(setCards))
-    // }, [])
-
-    // let state = store.getState().btns
-    
-    // const unsuscribe = store.subscribe(()=>{
-    //     // let newState = store.getState().btns
-    //     // console.log(newState.tags)
-    //     // console.log(state.tags)
-        
-    //     // if(state == newState)return
-
-    //     // state = newState
-    //     setCards()
-    // })
+const TariffCards = ({ cardsToRender }) => {
 
     return (
 

@@ -16,7 +16,29 @@
 //левая колонка
 .card_cols{
     color: white;
+    position: relative;
 }
+
+.extra_info_holder{
+    position: absolute;
+    bottom:0;
+}
+
+.extra_info_holder button{
+    background: none;
+    border: none;
+
+    width: 24px;
+    height: 24px;
+
+    margin-right: 20px;
+}
+
+.extra_info_holder button img{
+    transform: rotate(180deg);
+
+}
+
 
 .tariff_name{
     font-size: 20px;
