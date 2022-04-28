@@ -59,10 +59,14 @@ const TariffCard = ({ config, index }) => {
                             </div>
                         </div>
                     ))}
-                    <div className="extra_info_holder">
-                        <button id={`extra_shower_${index}`} onClick={()=>showExtra(index)}><img src={require('../icons/white/arrow.png')} alt='' /></button>
-                        <span>Дополнительно...</span>
-                    </div>
+                    {config.extra?(
+                        <div>
+                            <div className="extra_info_holder mt-3">
+                                <button data-toggle="collapse" data-target={`#extra_collapse_${index}`} id={`extra_shower_${index}`} onClick={()=>showExtra(index)}><img src={require('../icons/white/arrow.png')} alt='' /></button>
+                                <span>Дополнительно</span>
+                            </div>
+                        </div>
+                    ):("")}
                 </div>
 
                 {/* правая колонка */}
@@ -73,7 +77,7 @@ const TariffCard = ({ config, index }) => {
                     </div>
                     {/* оборудование */}
                     {config.equip ? (
-                        <div className="extra_holder mt-2">
+                        <div className="equip_holder mt-2">
                             <span>Оборудование:</span>
                             {config.equip.map(eq => (
                                 <span className="mt-2" key={eq.value}>{eq.value}</span>
@@ -90,6 +94,13 @@ const TariffCard = ({ config, index }) => {
                     <div className="gen_btns mt-2 mb-2">
                         <button onClick={setConsultationTariff} className="col-6 get_btn connect_btn" data-bs-toggle='modal' data-bs-target='#request_modal'>Подключить</button>
                         <button onClick={changeIndex} data-bs-toggle='modal' data-bs-target='#more_modal' className="col-6 get_btn more_btn">Подробнее</button>
+                    </div>
+                </div>
+                <div className="row justify-content-start extra_full_holder mt-2">
+                    <div className="collapse extra_collapse col-6 text-start" id={`extra_collapse_${index}`}>
+                        {config.extra?.map(ex=>(
+                            <span key={ex.value}>{ex.value}</span>
+                        ))}
                     </div>
                 </div>
             </div>

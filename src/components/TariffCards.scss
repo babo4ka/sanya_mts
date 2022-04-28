@@ -26,6 +26,10 @@
     bottom:0;
 }
 
+.extra_full_holder{
+    padding: 0;
+}
+
 .extra_info_holder button{
     background: none;
     border: none;
@@ -41,6 +45,15 @@
 
 }
 
+.extra_collapse{
+    display: flex;
+    flex-direction: column;
+
+    font-size: 12px;
+    margin-left: 10px;
+
+    color:$white;
+}
 
 .tariff_name{
     font-size: 20px;
@@ -88,14 +101,14 @@
     font-size: 10px;
 }
 
-.extra_holder{
+.equip_holder{
     display: flex;
     flex-direction: column;
 
     font-size: 10px;
 }
 
-.extra_holder span:first-child{
+.equip_holder span:first-child{
     font-size: 15px;
     margin-bottom: 10px;
 }
