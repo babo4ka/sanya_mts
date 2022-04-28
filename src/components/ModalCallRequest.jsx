@@ -9,9 +9,13 @@ const ModalCallRequest = ()=>{
 
     const tariff = useSelector(state => state.consultation.consultation)
 
+    const data = ['Имя:', 'Номер телефона:']
     const sendMessage = (e)=>{
         e.preventDefault()
-        const toSendData = `${$('#modal_request_form').serialize()}&tariff=${tariff}`
+        let msg = `Консультация по тарифу ${tariff}:%0A`
+        $('#request_form').serializeArray().map((el, I)=>{
+            msg = `${msg}${data[I]} ${el.value}%0A`
+        })
         // if($('#input_field_3').val() == ''){
         //     $('#input_field_3').addClass('name_validation_invalid')
         //     $('.input_holder .name_validation').removeClass('validation_hidden')
@@ -27,11 +31,7 @@ const ModalCallRequest = ()=>{
         
         $.ajax({
             type: "POST",
-            url:"http://localhost/TelegrammRequest.php",
-            data: toSendData,
-            // beforeSend: function(request) {
-            //     request.setRequestHeader("AAccess-Control-Allow-Origin", true);
-            //   },
+            url:config.tg_URL + msg,
         })
 
         $('#request_success_modal').css('display', 'block')
@@ -55,8 +55,9 @@ const ModalCallRequest = ()=>{
 
     useEffect(async ()=>{
         IMask(document.getElementById('input_field_4'), config.maskOptions)
+        
     }, [])
-
+    
 
     return(
         <div className="modal" id="request_modal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

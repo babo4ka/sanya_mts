@@ -10,10 +10,10 @@ import CallRequest from './components/CallRequest';
 import ModalCallRequest from './components/ModalCallRequest';
 import ReportWindow from './components/ReportWindow';
 import { useState } from 'react';
-
 const config = require('./config.json')
 
 function App() {
+
 
   const [tariffsToShow, setTariffsToShow] = useState(store.getState().cards.tariffCards)
   const [choosedTags, setChoosedTags] = useState(store.getState().btns.tags)

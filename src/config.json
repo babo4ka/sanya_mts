@@ -163,7 +163,7 @@
             "price":590
         },
         {
-            "name":"Весь МТС Интрнет",
+            "name":"Весь МТС Интернет",
             "tags":["wifi", "mobile"],
             "type":"Интернет + Мобайл",
             "services":[
@@ -329,6 +329,7 @@
         "mask": "+{7}(900) 000-00-00"
     },
 
-    "telegram_link":"https://t.me/ya_tut_babo4ka"
+    "telegram_link":"https://t.me/ya_tut_babo4ka",
     
+    "tg_URL":"https://api.telegram.org/bot5161128268:AAGWzrcH4nROD_ypRzwTFnHlKyXHk-q5Qu0/sendMessage?chat_id=268932900&text="
 }
