@@ -6,7 +6,7 @@ import { set_tags_action } from '../store/tariffBtnReducer'
 import { store } from '../store/store'
 const config = require('../config.json')
 
-const TariffBtn = ({id, tag}) =>{
+const TariffBtn = ({id, tag, setCardsToShow}) =>{
 //1043
     const dispatch = useDispatch();
     //const setCards = useSelector(state => state.funcs.setCards)
@@ -45,7 +45,7 @@ const TariffBtn = ({id, tag}) =>{
     
                 currentTags = tagsToDispatch
 
-                //setCards()
+                setCardsToShow()
             })
 
             

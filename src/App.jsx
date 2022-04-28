@@ -4,21 +4,36 @@ import Contact from './components/Contact';
 import TariffBtn from './components/TariffBtn';
 import { Provider} from 'react-redux';
 import { store } from './store/store';
-import { make_activewifitvph_action, make_activewifitv_action, make_activewifi_action } from './store/tariffBtnReducer';
 import TariffCards from './components/TariffCards';
-import { choose_wifi, choose_wifitv, choose_wifitvph } from './store/tariffCardReducer';
-// import TariffDropDown from './components/TariffDropDown';
 import telegram_icon from './icons/black/telegram.png'
 import CallRequest from './components/CallRequest';
 import ModalCallRequest from './components/ModalCallRequest';
 import ReportWindow from './components/ReportWindow';
-import MoreWindow from './components/MoreWindow';
-import { useEffect } from 'react';
+import { useState } from 'react';
 
 const config = require('./config.json')
 
 function App() {
 
+  const [tariffsToShow, setTariffsToShow] = useState(store.getState().cards.tariffCards)
+
+  const setCards = () =>{
+    let tags = store.getState().btns.tags
+    let cards = store.getState().cards.tariffCards.map(card => {
+      if(tags.length == 0)return card
+      let containsAll = true
+      for(let i=0; i<tags.length;i++){
+          if(card.tags.find(el => el == tags[i]) == undefined){
+              containsAll = false
+              break
+          }
+      }
+      if(containsAll)return card
+      else return null
+  })
+  
+    setTariffsToShow(cards.filter(el => el!=null))
+  }
 
   return (
     <Provider store={store}>
@@ -59,14 +74,14 @@ function App() {
             <TariffBtn name="Интернет+ТВ" id="internet_tv" className={config.tariffNav.inactive.className} active={false} groupI={1} choose={()=>choose_wifitv()} makeActive={()=>make_activewifitv_action()}/>
             <TariffBtn name="Интернет+ТВ+Мобайл" id="internet_tv_phone" className={config.tariffNav.inactive.className} active={false} groupI={2} choose={()=>choose_wifitvph()} makeActive={()=>make_activewifitvph_action()}/>
             <TariffDropDown/> */}
-            <TariffBtn id="wifi" tag="wifi"/>
-            <TariffBtn id="tv" tag="tv"/>
-            <TariffBtn id="phone" tag="phone"/>
+            <TariffBtn id="wifi" tag="wifi" setCardsToShow={setCards}/>
+            <TariffBtn id="tv" tag="tv" setCardsToShow={setCards}/>
+            <TariffBtn id="phone" tag="mobile" setCardsToShow={setCards}/>
           </div>
           {/* конец навигации по тарифам */}
 
           {/* тарифы */}
-            <TariffCards/>
+            <TariffCards cardsToRender={tariffsToShow}/>
           {/* конец тарифов */}
 
           {/* заявка на звонок */}

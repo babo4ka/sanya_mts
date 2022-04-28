@@ -81,51 +81,33 @@ const TariffCard = ({ config, index }) => {
     )
 }
 
-const TariffCards = () => {
-
-    const cardsArray = useSelector(state => state.cards.tariffCards)
-
-    const [cardsToShow, setCardsToShow] = useState(cardsArray)
+const TariffCards = ({cardsToRender}) => {
+    console.log(cardsToRender)
+    
 
     // const dispatch = useDispatch()
     // useEffect(async () =>{
     //     dispatch(set_cards_action(setCards))
     // }, [])
 
-    const setCards = () =>{
-        let tags = store.getState().btns.tags
-        let cards = store.getState().cards.tariffCards
+    // let state = store.getState().btns
+    
+    // const unsuscribe = store.subscribe(()=>{
+    //     // let newState = store.getState().btns
+    //     // console.log(newState.tags)
+    //     // console.log(state.tags)
         
+    //     // if(state == newState)return
 
-        cards = cards.map(card => {
-            if(tags.length == 0)return card
-            let containsAll = true
-            for(let i=0; i<tags.length;i++){
-                if(card.tags.find(el => el == tags[i]) == undefined){
-                    containsAll = false
-                    break
-                }
-            }
-            // console.log(containsAll)
-            if(containsAll)return card
-            else return null
-            
-        })
-
-        setCardsToShow(cards.filter(el => el!=null))
-        console.log(cardsToShow)
-
-    }
-
-
-
-
+    //     // state = newState
+    //     setCards()
+    // })
 
     return (
 
         <div id="tariff_cards" className="row justify-content-center mt-5 tariffs_cards_holder align-items-center">
             {/* проходимся по массиву тарифов и создаём карточку для каждого */}
-            {cardsToShow.map((tariff, tariffI) => (
+            {cardsToRender.map((tariff, tariffI) => (
                 <TariffCard key={tariff.name} config={tariff} index={tariffI} />
             ))}
         </div>
