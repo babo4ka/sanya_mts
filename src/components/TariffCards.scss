@@ -21,9 +21,11 @@
     position: relative;
 }
 
-.extra_info_holder{
-    position: absolute;
-    bottom:0;
+@media screen and(min-width:576px) {
+    .extra_info_holder{
+        position: absolute;
+        bottom:0;
+    }
 }
 
 .extra_full_holder{

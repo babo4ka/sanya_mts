@@ -3,7 +3,7 @@ import { change_consultation_tariff } from '../store/consultationReducer';
 import './TariffCards.scss';
 import $ from 'jquery'
 import { change_index } from '../store/tariffCardReducer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 const TariffCard = ({ config, index }) => {
@@ -37,6 +37,28 @@ const TariffCard = ({ config, index }) => {
     const showExtra = (index) => {
         toggleAngle(index)
     }
+
+    useEffect(async ()=>{
+        $(window).resize(()=>{
+            if($(window).width() > 576){
+                if($(`#extra_collapse_${index}`).hasClass('text-start'))return
+                $(`#extra_collapse_${index}`).toggleClass('text-start').toggleClass('text-center')
+            }else{
+                if($(`#extra_collapse_${index}`).hasClass('text-center'))return
+                $(`#extra_collapse_${index}`).toggleClass('text-center').toggleClass('text-start')
+            }
+        })       
+        
+        $(window).ready(()=>{
+            if($(window).width() > 576){
+                if($(`#extra_collapse_${index}`).hasClass('text-start'))return
+                $(`#extra_collapse_${index}`).toggleClass('text-start').toggleClass('text-center')
+            }else{
+                if($(`#extra_collapse_${index}`).hasClass('text-center'))return
+                $(`#extra_collapse_${index}`).toggleClass('text-center').toggleClass('text-start')
+            }
+        })
+    }, [])
 
     return (
         // контейнер для карточки
@@ -90,14 +112,60 @@ const TariffCard = ({ config, index }) => {
                         <span className="price">{config.price} руб./месяц</span>
                     </div>
                     {/* подключение */}
-
                     <div className="gen_btns mt-2 mb-2">
                         <button onClick={setConsultationTariff} className="col-6 get_btn connect_btn" data-bs-toggle='modal' data-bs-target='#request_modal'>Подключить</button>
                         <button onClick={changeIndex} data-bs-toggle='modal' data-bs-target='#more_modal' className="col-6 get_btn more_btn">Подробнее</button>
                     </div>
                 </div>
+
+                {/* колонка для смартфонов */}
+                <div className="middle_col card_cols col-12">
+                    <span className="tariff_name">{config.name}</span>
+                    {/* услуги тарифа */}
+                    {config.services.map(service => (
+                        <div key={service.name} className="services_holder mt-2">
+                            <label htmlFor={`service${service.name}`}>
+                                <img src={require(`../icons/red/${service.icon}`)} alt="" className="service_icon" />
+                            </label>
+                            <div id={`service${service.name}`} className="service">
+                                <span>{service.name}</span>
+                                <span>{service.value}</span>
+                            </div>
+                        </div>
+                    ))}
+                    {/* оборудование */}
+                    {config.equip ? (
+                        <div className="equip_holder mt-2">
+                            <span>Оборудование:</span>
+                            {config.equip.map(eq => (
+                                <span className="mt-2" key={eq.value}>{eq.value}</span>
+                            ))}
+                        </div>
+                    ) : ("")}
+
+                    {/* цена тарифа */}
+                    <div className="mt-2">
+                        <span className="price">{config.price} руб./месяц</span>
+                    </div>
+                    {/* подключение */}
+                    <div className="gen_btns mt-2 mb-2">
+                        <button onClick={setConsultationTariff} className="col-6 get_btn connect_btn" data-bs-toggle='modal' data-bs-target='#request_modal'>Подключить</button>
+                        <button onClick={changeIndex} data-bs-toggle='modal' data-bs-target='#more_modal' className="col-6 get_btn more_btn">Подробнее</button>
+                    </div>
+
+                    {config.extra?(
+                    <div>
+                        <div className="extra_info_holder mt-3">
+                            <button data-toggle="collapse" data-target={`#extra_collapse_${index}`} id={`extra_shower_${index}`} onClick={()=>showExtra(index)}><img src={require('../icons/white/arrow.png')} alt='' /></button>
+                            <span>Дополнительно</span>
+                        </div>
+                    </div>
+                    ):("")}
+                </div>
+
+                {/* Дополнительно */}
                 <div className="row justify-content-start extra_full_holder mt-2">
-                    <div className="collapse extra_collapse col-6 text-start" id={`extra_collapse_${index}`}>
+                    <div className="collapse extra_collapse col-12 text-start" id={`extra_collapse_${index}`}>
                         {config.extra?.map(ex=>(
                             <span key={ex.value}>{ex.value}</span>
                         ))}

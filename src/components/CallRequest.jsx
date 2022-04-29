@@ -32,10 +32,12 @@ const CallRequest = () =>{
     let littleStyles_validation = {
         margin_left: -$('.validation').width()/2,
         margin_top: $('.validation').height()/2 + 10,
-        top:'50%',
+        top:'50%'  ,
         left:'50%',
         text_align:"center",
     }
+
+    console.log(littleStyles_validation.left)
 
     const setFloatStyles = (i)=>{
         if($(window).width()>991){
@@ -101,13 +103,13 @@ const CallRequest = () =>{
             if($(window).width() > 991){
                 $('.name_validation, .phone_validation').css('margin', bigStyles_validation.margin)
                 $('.name_validation, .phone_validation').css('top', bigStyles_validation.top)
-                $('.name_validation, .phone_validation').css('left', bigStyles_validation.left)
+                //$('.name_validation, .phone_validation').css('left', bigStyles_validation.left)
                 $('.name_validation, .phone_validation').css('text-align', bigStyles_validation.text_align)
             }else{
                 $('.name_validation, .phone_validation').css('margin-left', littleStyles_validation.margin_left)
                 $('.name_validation, .phone_validation').css('margin-top', littleStyles_validation.margin_top)
                 $('.name_validation, .phone_validation').css('top', littleStyles_validation.top)
-                $('.name_validation, .phone_validation').css('left', littleStyles_validation.left)
+                //$('.name_validation, .phone_validation').css('left', littleStyles_validation.left)
                 $('.name_validation, .phone_validation').css('text-align', littleStyles_validation.text_align)
             }
         })
@@ -119,6 +121,8 @@ const CallRequest = () =>{
             littleStyles.float_margin_l = -$('.input_field, .input_holder label').width()/2;
             littleStyles.float_margin_t = -$('.input_field, .input_holder label').height()/2 - 15;
             
+            
+
             if($(window).width()<=991){
                 $('.input_field, .input_holder label')
                 .css('margin-left', -$('.input_field, .input_holder label').width()/2)
@@ -132,7 +136,7 @@ const CallRequest = () =>{
                 $('.name_validation, .phone_validation').css('margin-left', littleStyles_validation.margin_left)
                 $('.name_validation, .phone_validation').css('margin-top', littleStyles_validation.margin_top)
                 $('.name_validation, .phone_validation').css('top', littleStyles_validation.top)
-                $('.name_validation, .phone_validation').css('left', littleStyles_validation.left)
+                //$('.name_validation, .phone_validation').css('left', littleStyles_validation.left)
                 $('.name_validation, .phone_validation').css('text-align', littleStyles_validation.text_align)
             }
             
@@ -144,7 +148,7 @@ const CallRequest = () =>{
 
                 $('.name_validation, .phone_validation').css('margin', bigStyles_validation.margin)
                 $('.name_validation, .phone_validation').css('top', bigStyles_validation.top)
-                $('.name_validation, .phone_validation').css('left', bigStyles_validation.left)
+                //$('.name_validation, .phone_validation').css('left', bigStyles_validation.left)
                 $('.name_validation, .phone_validation').css('text-align', bigStyles_validation.text_align)
             }
         })

@@ -9,7 +9,8 @@ import telegram_icon from './icons/black/telegram.png'
 import CallRequest from './components/CallRequest';
 import ModalCallRequest from './components/ModalCallRequest';
 import ReportWindow from './components/ReportWindow';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import $ from 'jquery'
 const config = require('./config.json')
 
 function App() {
@@ -42,6 +43,27 @@ function App() {
     ['tv', 'ТВ'],
     ['mobile', 'мобайл']
   ])
+
+  useEffect(async ()=>{
+    $(window).resize(()=>{
+      if($(window).width() > 576){
+        $('#tariffs_navigation_holder').addClass('justify-content-start').removeClass('justify-content-center')
+        $('.tags_info').addClass('text-start').removeClass('text-center')
+      }else{
+        $('#tariffs_navigation_holder').addClass('justify-content-center').removeClass('justify-content-start')
+        $('.tags_info').addClass('text-center').removeClass('text-start')
+      }
+    })
+    $(window).ready(()=>{
+      if($(window).width() > 576){
+        $('#tariffs_navigation_holder').addClass('justify-content-start').removeClass('justify-content-center')
+        $('.tags_info').addClass('text-start').removeClass('text-center')
+      }else{
+        $('#tariffs_navigation_holder').addClass('justify-content-center').removeClass('justify-content-start')
+        $('.tags_info').addClass('text-center').removeClass('text-start')
+      }
+    })
+  })
 
   return (
     <Provider store={store}>
@@ -77,7 +99,7 @@ function App() {
 
           {/* навигация по тарифам */}
           
-          <div className="row justify-content-start mt-5 tariffs_nav_holder">
+          <div className="row justify-content-start mt-5 tariffs_nav_holder" id="tariffs_navigation_holder">
             <span className="text-start mb-3 tags_info">Выберите нужные теги для поиска тарифа: </span>
             <TariffBtn id="wifi" tag="wifi" setCardsToShow={setCards}/>
             <TariffBtn id="tv" tag="tv" setCardsToShow={setCards}/>

@@ -13,7 +13,7 @@ const ModalCallRequest = ()=>{
     const sendMessage = (e)=>{
         e.preventDefault()
         let msg = `Консультация по тарифу ${tariff}:%0A`
-        $('#request_form').serializeArray().map((el, I)=>{
+        $('#modal_request_form').serializeArray().map((el, I)=>{
             msg = `${msg}${data[I]} ${el.value}%0A`
         })
         // if($('#input_field_3').val() == ''){
