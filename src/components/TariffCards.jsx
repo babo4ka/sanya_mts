@@ -10,7 +10,6 @@ const TariffCard = ({ config, index }) => {
 
     const dispatch = useDispatch();
 
-    const [itemClass, setItemClass] = useState(index == 0? 'carousel-item active col-lg-6 col-10 container tariff_card_holder' : 'carousel-item col-lg-6 col-10 container tariff_card_holder')
     const setConsultationTariff = () => {
         $('#input_field_3').text('')
         $('#input_field_4').text('')
@@ -168,37 +167,94 @@ const TariffCard = ({ config, index }) => {
 
 const TariffCards = ({ cardsToRender }) => {
 
+    const [indexes, setIndexes] = useState(
+        $(window).width()>1000?
+        {
+            first:0,
+            second:1
+        }:{
+            first:0,
+            second:undefined
+        })
+    
+    let big = $(window).width()>999
+    useEffect(async ()=>{
+        $(window).resize(()=>{
+            if($(window).width() > 999){
+                if(!big){
+                    setIndexes(prev=>{
+                        let newI = JSON.parse(JSON.stringify(prev))
+                        newI['second'] = newI.first + 1
+
+                        return newI
+                    })
+                    big = !big
+                }
+            }else{
+                if(big){
+                    setIndexes(prev=>{
+                        let newI = JSON.parse(JSON.stringify(prev))
+                        newI['second'] = undefined
+
+                        return newI
+                    })
+                    big = !big
+                }
+            }
+        })
+    }, [])
+
+    const goNext = ()=>{
+        $('#tariff_cards').fadeToggle('fast', ()=>{
+            let nF = indexes.first
+            let nS = indexes.second
+    
+            nF = nF + 1 == cardsToRender.length?0:nF+1
+            nS = undefined? undefined:(nS+1==cardsToRender.length?0:nS+1)
+    
+    
+            setIndexes({
+                first:nF,
+                second:nS
+            })
+        })
+        
+        $('#tariff_cards').fadeToggle('fast')
+    }
+
+    const goPrev = () =>{
+        $('#tariff_cards').fadeToggle('fast', ()=>{
+            let pF = indexes.first
+            let pS = indexes.second
+    
+            pF = pF - 1 < 0?cardsToRender.length-1:pF-1
+            pS = undefined? undefined:(pS-1 < 0?cardsToRender.length-1:pS-1)
+    
+    
+            setIndexes({
+                first:pF,
+                second:pS
+            })
+        })
+
+        
+        $('#tariff_cards').fadeToggle('fast')
+    }
 
     return (
-        <div id="tariff_cards" className="row justify-content-center align-items-center mt-5 tariffs_cards_holder">
-        {/* проходимся по массиву тарифов и создаём карточку для каждого */}
-        {cardsToRender.map((tariff, tariffI) => (
-            <TariffCard key={tariff.name} config={tariff} index={tariffI} />
-        ))}
+        <div>
+            {cardsToRender.length>0?(
+                <div id="tariff_cards" className="row justify-content-center align-items-center mt-5 tariffs_cards_holder">
+                    <button onClick={goNext} className="tariffs_holder_nav_btn tariffs_holder_nav_btn_right"><img src={require('../icons/black/arrow_bigger.png')} alt="" /></button>
+                    <button onClick={goPrev} className="tariffs_holder_nav_btn tariffs_holder_nav_btn_left"><img src={require('../icons/black/arrow_bigger.png')} alt="" /></button>
+                    
+                    <TariffCard config={cardsToRender[indexes.first]} index={indexes.first}/>
+                    {indexes.second || indexes.second > -1?(
+                        <TariffCard config={cardsToRender[indexes.second]} index={indexes.second}/>
+                    ):("")}
+                </div>
+            ):("")}
         </div>
-
-        // <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        //     <div class="carousel-inner container-fluid">
-        //         <div className="row">
-        //             <div className="col-12">
-        //                 <div id="tariff_cards" className="row justify-content-center align-items-center mt-5 tariffs_cards_holder">
-        //                 {/* проходимся по массиву тарифов и создаём карточку для каждого */}
-        //                 {cardsToRender.map((tariff, tariffI) => (
-        //                     <TariffCard key={tariff.name} config={tariff} index={tariffI} />
-        //                 ))}
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </div>
-        //     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
-        //         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        //         <span class="visually-hidden">Предыдущий</span>
-        //     </button>
-        //     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
-        //         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        //         <span class="visually-hidden">Следующий</span>
-        //     </button>
-        // </div>
     )
 }
 
