@@ -10,15 +10,8 @@ const TariffCard = ({ config, index }) => {
 
     const dispatch = useDispatch();
 
-
-
+    const [itemClass, setItemClass] = useState(index == 0? 'carousel-item active col-lg-6 col-10 container tariff_card_holder' : 'carousel-item col-lg-6 col-10 container tariff_card_holder')
     const setConsultationTariff = () => {
-        // $('#input_holder_3 .name_validation').addClass('validation_hidden')
-        // $('#input_field_3').removeClass('name_validation_invalid')
-
-        // $('#input_holder_4 .phone_validation').addClass('validation_hidden')
-        // $('#input_field_4').removeClass('phone_validation_invalid')
-
         $('#input_field_3').text('')
         $('#input_field_4').text('')
         dispatch(change_consultation_tariff(config.name));
@@ -29,16 +22,13 @@ const TariffCard = ({ config, index }) => {
     }
 
     const [angle, setAngle] = useState(0)
-    const toggleAngle = (index) => {
+    const showExtra = (index) => {
         $(`#extra_shower_${index} img`).css('transform', `rotate(${angle}deg)`)
         setAngle(Math.abs(angle-180))
     }
 
-    const showExtra = (index) => {
-        toggleAngle(index)
-    }
-
     useEffect(async ()=>{
+        
         $(window).resize(()=>{
             if($(window).width() > 576){
                 if($(`#extra_collapse_${index}`).hasClass('text-start'))return
@@ -62,7 +52,7 @@ const TariffCard = ({ config, index }) => {
 
     return (
         // контейнер для карточки
-        <div className="col-lg-6 col-10 container-fluid tariff_card_holder">
+        <div className={`col-lg-6 col-10 container tariff_card_holder`}>
             <div className="row justify-content-center">
 
                 {/* левая колонка */}
@@ -178,15 +168,37 @@ const TariffCard = ({ config, index }) => {
 
 const TariffCards = ({ cardsToRender }) => {
 
-    return (
 
-        <div id="tariff_cards" className="row justify-content-center mt-5 tariffs_cards_holder align-items-center">
-            {/* проходимся по массиву тарифов и создаём карточку для каждого */}
-            {cardsToRender.map((tariff, tariffI) => (
-                <TariffCard key={tariff.name} config={tariff} index={tariffI} />
-            ))}
+    return (
+        <div id="tariff_cards" className="row justify-content-center align-items-center mt-5 tariffs_cards_holder">
+        {/* проходимся по массиву тарифов и создаём карточку для каждого */}
+        {cardsToRender.map((tariff, tariffI) => (
+            <TariffCard key={tariff.name} config={tariff} index={tariffI} />
+        ))}
         </div>
 
+        // <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        //     <div class="carousel-inner container-fluid">
+        //         <div className="row">
+        //             <div className="col-12">
+        //                 <div id="tariff_cards" className="row justify-content-center align-items-center mt-5 tariffs_cards_holder">
+        //                 {/* проходимся по массиву тарифов и создаём карточку для каждого */}
+        //                 {cardsToRender.map((tariff, tariffI) => (
+        //                     <TariffCard key={tariff.name} config={tariff} index={tariffI} />
+        //                 ))}
+        //                 </div>
+        //             </div>
+        //         </div>
+        //     </div>
+        //     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
+        //         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        //         <span class="visually-hidden">Предыдущий</span>
+        //     </button>
+        //     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
+        //         <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        //         <span class="visually-hidden">Следующий</span>
+        //     </button>
+        // </div>
     )
 }
 

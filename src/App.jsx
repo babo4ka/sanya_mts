@@ -33,7 +33,7 @@ function App() {
       if(containsAll)return card
       else return null
   })
-  
+    setTariffsToShow([])
     setTariffsToShow(cards.filter(el => el!=null))
     setChoosedTags(store.getState().btns.tags)
   }
@@ -45,6 +45,7 @@ function App() {
   ])
 
   useEffect(async ()=>{
+
     $(window).resize(()=>{
       if($(window).width() > 576){
         $('#tariffs_navigation_holder').addClass('justify-content-start').removeClass('justify-content-center')

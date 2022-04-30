@@ -37,7 +37,6 @@ const CallRequest = () =>{
         text_align:"center",
     }
 
-    console.log(littleStyles_validation.left)
 
     const setFloatStyles = (i)=>{
         if($(window).width()>991){
