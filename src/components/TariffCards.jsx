@@ -179,6 +179,7 @@ const TariffCards = ({ cardsToRender }) => {
     
     let big = $(window).width()>999
     useEffect(async ()=>{
+
         $(window).resize(()=>{
             if($(window).width() > 999){
                 if(!big){
