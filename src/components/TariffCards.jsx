@@ -205,6 +205,19 @@ const TariffCards = ({ cardsToRender }) => {
         })
     }, [])
 
+    useEffect(async ()=>{
+        if(cardsToRender.length == 0){
+            setIndexes($(window).width()>1000?
+            {
+                first:0,
+                second:1
+            }:{
+                first:0,
+                second:undefined
+            })
+        }
+    }, [cardsToRender])
+
     const goNext = ()=>{
         $('#tariff_cards').fadeToggle('fast', ()=>{
             let nF = indexes.first
