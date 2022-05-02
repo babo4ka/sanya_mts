@@ -12,6 +12,9 @@ const ReportWindow = () =>{
             type: "POST",
             url:"http://localhost/ReportRequest.php",
             data: dataToSend,
+            headers: {
+                "Access-Control-Allow-Origin":"http://192.168.0.107:3000/",
+            }
         })
 
         $('#report_success').css('display', 'block')
