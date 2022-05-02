@@ -177,11 +177,11 @@ const TariffCards = ({ cardsToRender }) => {
             second:undefined
         })
     
-    let big = $(window).width()>999
+    let big = $(window).width()>1059
     useEffect(async ()=>{
 
         $(window).resize(()=>{
-            if($(window).width() > 999){
+            if($(window).width() > 1059){
                 if(!big){
                     setIndexes(prev=>{
                         let newI = JSON.parse(JSON.stringify(prev))
