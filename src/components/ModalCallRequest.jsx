@@ -10,12 +10,14 @@ const config = require('../config.json')
 const ModalCallRequest = ()=>{
 
     const tariff = useSelector(state => state.consultation.consultation)
+    const data = ['Имя:', 'Номер телефона:']
     const sendMessage = (e)=>{
         e.preventDefault()
 
-
-        let dataToSend = `${$('#modal_request_form').serialize()}&tariff=${tariff}`
-
+        let msg = `Консультация по тарифу ${tariff}:%0A`
+        $('#request_form').serializeArray().map((el, I)=>{
+            msg = `${msg}${data[I]} ${el.value}%0A`
+        })
 
         if($('#input_field_4').val() == ''){
             $('#input_field_4').addClass('phone_validation_invalid')
@@ -26,8 +28,7 @@ const ModalCallRequest = ()=>{
         
         $.ajax({
             type: "POST",
-            url:"http://localhost/TelegrammRequest.php",
-            data:dataToSend
+            url:config.tg_URL + msg,
         })
 
         $('#request_success_modal').css('display', 'block')

@@ -155,11 +155,20 @@ const CallRequest = () =>{
         
     }, [])
 
+    const data = ['Имя:', 'Номер телефона:']
+
     const sendMessage = (e)=>{
         e.preventDefault()
 
+        let dataToSend = $('#request_form').serializeArray()
+        console.log(dataToSend)
 
+        let msg = 'Консультация по всем тарифам:%0A'
+        $('#request_form').serializeArray().map((el, I)=>{
+            msg = `${msg}${data[I]} ${el.value}%0A`
+        })
 
+        console.log(config.tg_URL + msg)
         if($('#input_field_2').val() == ''){
             $('#input_field_2').addClass('phone_validation_invalid')
             $('#input_holder_2 .phone_validation').removeClass('validation_hidden')
@@ -168,8 +177,7 @@ const CallRequest = () =>{
         
         $.ajax({
             type: "POST",
-            url:"http://localhost/TelegrammRequest.php",
-            data:$('#request_form').serialize()
+            url:config.tg_URL + msg,
         })
 
         $('#request_success_main').css('display', 'block')

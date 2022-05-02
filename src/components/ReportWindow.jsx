@@ -1,20 +1,14 @@
 import './ReportWindow.scss';
 import $ from 'jquery'
-
+const config = require('../config.json')
 const ReportWindow = () =>{
 
     const sendReport = (e) =>{
         e.preventDefault()
-        
-        let dataToSend = $('#report_form').serialize().replace("\n", "%0A")
-
+        let msg = $('#report_form').serialize()
         $.ajax({
             type: "POST",
-            url:"http://localhost/ReportRequest.php",
-            data: dataToSend,
-            headers: {
-                "Access-Control-Allow-Origin":"http://192.168.0.107:3000/",
-            }
+            url:config.tg_URL +msg.replace("report_message=", ''),
         })
 
         $('#report_success').css('display', 'block')
