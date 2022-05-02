@@ -259,8 +259,8 @@ const TariffCards = ({ cardsToRender }) => {
         <div>
             {cardsToRender.length>0?(
                 <div id="tariff_cards" className="row justify-content-center align-items-center mt-5 tariffs_cards_holder">
-                    <button onClick={goNext} className="tariffs_holder_nav_btn tariffs_holder_nav_btn_right"><img src={require('../icons/black/arrow_bigger.png')} alt="" /></button>
-                    <button onClick={goPrev} className="tariffs_holder_nav_btn tariffs_holder_nav_btn_left"><img src={require('../icons/black/arrow_bigger.png')} alt="" /></button>
+                    <button onClick={goNext} className="tariffs_holder_nav_btn tariffs_holder_nav_btn_right"><img src={require('../icons/black/arrow_1.png')} alt="" /></button>
+                    <button onClick={goPrev} className="tariffs_holder_nav_btn tariffs_holder_nav_btn_left"><img src={require('../icons/black/arrow_1.png')} alt="" /></button>
                     
                     <TariffCard config={cardsToRender[indexes.first]} index={indexes.first}/>
                     {indexes.second || indexes.second > -1?(

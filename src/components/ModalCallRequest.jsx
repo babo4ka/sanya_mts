@@ -4,23 +4,18 @@ import $ from 'jquery'
 import { useEffect } from 'react'
 import IMask from 'imask'
 import close_icon from '../icons/red/krestik.png'
+import { Link } from 'react-router-dom'
+
 const config = require('../config.json')
 const ModalCallRequest = ()=>{
 
     const tariff = useSelector(state => state.consultation.consultation)
-
-    const data = ['Имя:', 'Номер телефона:']
     const sendMessage = (e)=>{
         e.preventDefault()
-        let msg = `Консультация по тарифу ${tariff}:%0A`
-        $('#modal_request_form').serializeArray().map((el, I)=>{
-            msg = `${msg}${data[I]} ${el.value}%0A`
-        })
-        // if($('#input_field_3').val() == ''){
-        //     $('#input_field_3').addClass('name_validation_invalid')
-        //     $('.input_holder .name_validation').removeClass('validation_hidden')
-            
-        // }
+
+
+        let dataToSend = `${$('#modal_request_form').serialize()}&tariff=${tariff}`
+
 
         if($('#input_field_4').val() == ''){
             $('#input_field_4').addClass('phone_validation_invalid')
@@ -31,7 +26,8 @@ const ModalCallRequest = ()=>{
         
         $.ajax({
             type: "POST",
-            url:config.tg_URL + msg,
+            url:"http://localhost/TelegrammRequest.php",
+            data:dataToSend
         })
 
         $('#request_success_modal').css('display', 'block')
@@ -42,10 +38,6 @@ const ModalCallRequest = ()=>{
     }
 
     const clearValidation = (e) =>{
-        // if(e.target.id == 'input_field_3'){
-        //     $('#input_holder_3 .name_validation').addClass('validation_hidden')
-        //     $('#input_field_3').removeClass('name_validation_invalid')
-        // }
 
         if(e.target.id == 'input_field_4'){
             $('#input_holder_4 .phone_validation').addClass('validation_hidden')

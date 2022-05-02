@@ -2,6 +2,7 @@ import './CallRequest.scss'
 import $ from 'jquery'
 import { useEffect } from 'react'
 import IMask from 'imask'
+import { Link } from 'react-router-dom'
 
 const config = require('../config.json')
 const CallRequest = () =>{
@@ -154,17 +155,10 @@ const CallRequest = () =>{
         
     }, [])
 
-    const data = ['Имя:', 'Номер телефона:']
     const sendMessage = (e)=>{
         e.preventDefault()
-        let msg = 'Консультация по всем тарифам:%0A'
-        $('#request_form').serializeArray().map((el, I)=>{
-            msg = `${msg}${data[I]} ${el.value}%0A`
-        })
-        // if($('#input_field_1').val() == ''){
-        //     $('#input_field_1').addClass('name_validation_invalid')
-        //     $('#input_holder_1 .name_validation').removeClass('validation_hidden')
-        // }
+
+
 
         if($('#input_field_2').val() == ''){
             $('#input_field_2').addClass('phone_validation_invalid')
@@ -174,7 +168,8 @@ const CallRequest = () =>{
         
         $.ajax({
             type: "POST",
-            url:config.tg_URL+msg,
+            url:"http://localhost/TelegrammRequest.php",
+            data:$('#request_form').serialize()
         })
 
         $('#request_success_main').css('display', 'block')
@@ -225,6 +220,7 @@ const CallRequest = () =>{
                     <button className='col-md-4 col-8 mt-5 request_btn'>Оставить заявку</button>
                 </form>
                 
+                <Link to="policy" >Политика конфиденциальности</Link>
             </div>
         </div>
     )

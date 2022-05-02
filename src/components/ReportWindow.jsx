@@ -5,13 +5,13 @@ const ReportWindow = () =>{
 
     const sendReport = (e) =>{
         e.preventDefault()
+        
+        let dataToSend = $('#report_form').serialize().replace("\n", "%0A")
+
         $.ajax({
             type: "POST",
             url:"http://localhost/ReportRequest.php",
-            data: $('#report_form').serialize(),
-            // beforeSend: function(request) {
-            //     request.setRequestHeader("AAccess-Control-Allow-Origin", true);
-            //   },
+            data: dataToSend,
         })
 
         $('#report_success').css('display', 'block')
