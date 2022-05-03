@@ -120,17 +120,18 @@ const Application = () =>{
               <TariffCards cardsToRender={tariffsToShow}/>
             {/* конец тарифов */}
   
-            {/* заявка на звонок */}
-  
-            <CallRequest/>
-  
-            {/* конец заявки на звонок */}
-  
             {/* каналы */}
 
             <Channels/>
             
             {/* конец каналов */}
+
+            {/* заявка на звонок */}
+  
+            <CallRequest/>
+  
+            {/* конец заявки на звонок */}
+
 
             {/* контакты снизу */}
             <div className="row justify-content-center mt-5">

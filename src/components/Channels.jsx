@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import './Channels.scss'
 import $ from 'jquery'
+import { Link } from 'react-router-dom'
 const channels = require('../channels.json')
-
+const ch_list = require('../список_каналов.pdf')
 const Channels = () =>{
     
 
@@ -27,19 +28,11 @@ const Channels = () =>{
         })
         $('#channels').fadeToggle('fast')
     }
-
+    
     return(
         <div id="channels" className="container mt-5">
             <div className="row justify-content-center align-items-center">
-                    <button onClick={goNext} className="tariffs_holder_nav_btn tariffs_holder_nav_btn_right"><img src={require('../icons/black/arrow_1.png')} alt="" /></button>
-                    <button onClick={goPrev} className="tariffs_holder_nav_btn tariffs_holder_nav_btn_left"><img src={require('../icons/black/arrow_1.png')} alt="" /></button>
-                    <span className="channels_list">Список каналов</span>
-                    <div className="channels_holder col-12 col-md-6 row">
-                        <span className="channel_group mb-3">{channels.channels[group].name}</span>
-                        {channels.channels[group].channels.map(channel => (
-                            <span className="channel_name col-3">{channel}</span>
-                        ))}
-                    </div>
+                <Link to={ch_list} target='_blank'>Скачать список каналов(.pdf)</Link>
             </div>
         </div>
     )
