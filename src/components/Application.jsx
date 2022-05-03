@@ -10,6 +10,7 @@ import ModalCallRequest from './ModalCallRequest';
 import ReportWindow from './ReportWindow';
 import { useEffect, useState } from 'react';
 import $ from 'jquery'
+import Channels from './Channels';
 const config = require('../config.json')
 const Application = () =>{
 
@@ -125,6 +126,12 @@ const Application = () =>{
   
             {/* конец заявки на звонок */}
   
+            {/* каналы */}
+
+            <Channels/>
+            
+            {/* конец каналов */}
+
             {/* контакты снизу */}
             <div className="row justify-content-center mt-5">
               <div className="col-md-6">
