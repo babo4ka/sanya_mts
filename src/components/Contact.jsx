@@ -15,6 +15,11 @@ const Contact = () =>{
 
                 <div className="col-md-6">
                     <h5 className="col-12 phone_tg">{config.contacts.agent}</h5>
+                    <div>
+                    {config.contacts.about.map(line =>(
+                        <span>{line}<br/></span>
+                    ))}
+                    </div>
                     <div className="col-12">
                         <span className="phone_tg" id="phone_holder">{config.contacts.phone}</span>
                         <label className="phone_tg" htmlFor="phone_holder"><a href={config.telegram_link} target="_blank"><img src={telegram_icon} alt=""></img></a></label>
