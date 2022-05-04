@@ -28,7 +28,7 @@ const ModalCallRequest = ()=>{
         
         $.ajax({
             type: "POST",
-            url:config.tg_URL + msg,
+            url:config.tg_consult_URL + msg,
         })
 
         $('#request_success_modal').css('display', 'block')

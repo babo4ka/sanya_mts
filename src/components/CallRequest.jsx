@@ -168,7 +168,6 @@ const CallRequest = () =>{
             msg = `${msg}${data[I]} ${el.value}%0A`
         })
 
-        console.log(config.tg_URL + msg)
         if($('#input_field_2').val() == ''){
             $('#input_field_2').addClass('phone_validation_invalid')
             $('#input_holder_2 .phone_validation').removeClass('validation_hidden')
@@ -177,7 +176,7 @@ const CallRequest = () =>{
         
         $.ajax({
             type: "POST",
-            url:config.tg_URL + msg,
+            url:config.tg_consult_URL + msg,
         })
 
         $('#request_success_main').css('display', 'block')
@@ -189,11 +188,6 @@ const CallRequest = () =>{
 
 
     const clearValidation = (e) =>{
-        // if(e.target.id == 'input_field_1' || e == 'input_field_1'){
-        //     $('#input_holder_1 .name_validation').addClass('validation_hidden')
-        //     $('#input_field_1').removeClass('name_validation_invalid')
-        // }
-
         if(e.target.id == 'input_field_2' || e == 'input_field_1'){
             $('#input_holder_2 .phone_validation').addClass('validation_hidden')
             $('#input_field_2').removeClass('phone_validation_invalid')
@@ -228,7 +222,7 @@ const CallRequest = () =>{
                     <button className='col-md-4 col-8 mt-5 request_btn'>Оставить заявку</button>
                 </form>
                 
-                <Link to="policy" >Политика конфиденциальности</Link>
+                <Link to="privacy" >Политика конфиденциальности</Link>
             </div>
         </div>
     )

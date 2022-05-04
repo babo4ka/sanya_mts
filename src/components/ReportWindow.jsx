@@ -8,7 +8,7 @@ const ReportWindow = () =>{
         let msg = $('#report_form').serialize()
         $.ajax({
             type: "POST",
-            url:config.tg_URL +msg.replace("report_message=", ''),
+            url:config.tg_report_URL +msg.replace("report_message=", ''),
         })
 
         $('#report_success').css('display', 'block')

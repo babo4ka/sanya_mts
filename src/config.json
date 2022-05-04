@@ -1,6 +1,6 @@
 {
     "contacts":{
-        "agent":"Ведущий специалист по домашним услугам ПАО МТС Александр:",
+        "agent":"Ведущий специалист по домашним услугам ПАО МТС Александр",
         "about":[
             "Агент группы продаж",
             "Работаю в компании пятый год",
@@ -350,5 +350,7 @@
 
     "telegram_link":"https://t.me/ya_tut_babo4ka",
     
-    "tg_URL":"https://api.telegram.org/bot5161128268:AAGWzrcH4nROD_ypRzwTFnHlKyXHk-q5Qu0/sendMessage?chat_id=268932900&text="
+    "tg_report_URL":"https://api.telegram.org/bot5161128268:AAGWzrcH4nROD_ypRzwTFnHlKyXHk-q5Qu0/sendMessage?chat_id=268932900&text=",
+
+    "tg_consult_URL":"https://api.telegram.org/bot5161128268:AAGWzrcH4nROD_ypRzwTFnHlKyXHk-q5Qu0/sendMessage?chat_id=268932900&text="
 }

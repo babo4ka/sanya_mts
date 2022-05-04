@@ -16,7 +16,7 @@ function App() {
         <Routes>
 
           <Route exact path="/" element={<Application/>}/>
-          <Route exact path="/policy" element={<PrivacyPolicy/>}/>
+          <Route exact path="/privacy" element={<PrivacyPolicy/>}/>
 
         </Routes>
 

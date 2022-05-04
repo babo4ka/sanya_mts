@@ -168,7 +168,7 @@ const TariffCard = ({ config, index }) => {
 const TariffCards = ({ cardsToRender }) => {
 
     const [indexes, setIndexes] = useState(
-        $(window).width()>1000?
+        $(window).width()>1059?
         {
             first:0,
             second:1
