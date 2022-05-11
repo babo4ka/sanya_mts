@@ -103,7 +103,7 @@ const TariffCard = ({ config, index }) => {
                     {/* подключение */}
                     <div className="gen_btns mt-2 mb-2">
                         <button onClick={setConsultationTariff} className="col-6 get_btn connect_btn" data-bs-toggle='modal' data-bs-target='#request_modal'>Подключить</button>
-                        <button onClick={changeIndex} data-bs-toggle='modal' data-bs-target='#more_modal' className="col-6 get_btn more_btn">Подробнее</button>
+                        {/* <button onClick={changeIndex} data-bs-toggle='modal' data-bs-target='#more_modal' className="col-6 get_btn more_btn">Подробнее</button> */}
                     </div>
                 </div>
 
@@ -139,7 +139,7 @@ const TariffCard = ({ config, index }) => {
                     {/* подключение */}
                     <div className="gen_btns mt-2 mb-2">
                         <button onClick={setConsultationTariff} className="col-6 get_btn connect_btn" data-bs-toggle='modal' data-bs-target='#request_modal'>Подключить</button>
-                        <button onClick={changeIndex} data-bs-toggle='modal' data-bs-target='#more_modal' className="col-6 get_btn more_btn">Подробнее</button>
+                        {/* <button onClick={changeIndex} data-bs-toggle='modal' data-bs-target='#more_modal' className="col-6 get_btn more_btn">Подробнее</button> */}
                     </div>
 
                     {config.extra?(
@@ -207,7 +207,7 @@ const TariffCards = ({ cardsToRender }) => {
 
     useEffect(async ()=>{
         if(cardsToRender.length == 0){
-            setIndexes($(window).width()>1000?
+            setIndexes($(window).width()>1059?
             {
                 first:0,
                 second:1

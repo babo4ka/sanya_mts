@@ -4,7 +4,6 @@ import $ from 'jquery'
 import { useEffect } from 'react'
 import IMask from 'imask'
 import close_icon from '../icons/red/krestik.png'
-import { Link } from 'react-router-dom'
 
 const config = require('../config.json')
 const ModalCallRequest = ()=>{
@@ -15,7 +14,7 @@ const ModalCallRequest = ()=>{
         e.preventDefault()
 
         let msg = `Консультация по тарифу ${tariff}:%0A`
-        $('#request_form').serializeArray().map((el, I)=>{
+        $('#modal_request_form').serializeArray().map((el, I)=>{
             msg = `${msg}${data[I]} ${el.value}%0A`
         })
 
