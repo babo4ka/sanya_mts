@@ -1,7 +1,7 @@
-
+@import "./colors.scss";
 // аватар
 $side_w:150px;
-$side_h:200px;
+$side_h:175px;
 
 .avatar_holder{
     width: $side_w;
@@ -26,11 +26,26 @@ $side_h:200px;
     font-weight: 500;
 }
 
+.about_info_holder{
+    padding-left: 35px;
+    color: $white;
+}
 
+@media (min-width:768px){
+    .agent_info_little{
+        display: none;
+    }
+}
+
+@media (max-width:768px){
+    .agent_info_large{
+        display: none;
+    }
+}
 
 @media (min-width:768px){
     .phone_tg{
-        margin-left: 15px;
+        // margin-left: 15px;
     }
 }
 // конец номер телефона

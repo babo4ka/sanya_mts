@@ -8,13 +8,14 @@ const Contact = () =>{
     
     return(
         <div className="contacts_info_holder mt-5 container">
-            <div className="row justify-content-center">
-                <div className="col-md-6 avatar_holder">
+            <div className="row justify-content-start">
+            <h5 className="col-12 phone_tg text-center agent_info_little">{config.contacts.agent}</h5>
+                <div className="col-md-4 avatar_holder">
                     <img src={sanya} alt="" className="avatar"></img>
                 </div>
 
-                <div className="col-md-6">
-                    <h5 className="col-12 phone_tg">{config.contacts.agent}</h5>
+                <div className="col-md text-start about_info_holder">
+                    <h5 className="col-12 phone_tg text-center agent_info_large">{config.contacts.agent}</h5>
                     <div>
                     {config.contacts.about.map(line =>(
                         <span>{line}<br/></span>

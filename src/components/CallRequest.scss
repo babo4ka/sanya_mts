@@ -1,13 +1,17 @@
-
+@import "./colors.scss";
 
 .call_request_holder{
     border: 1px solid black;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.25);
+
+    color: $white;
+    background: linear-gradient(317deg, #ff0000, #000000);
+    background-size: 400% 400%;
 }
 
 .request_text{
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 500;
 }
 
@@ -19,14 +23,14 @@
 }
 
 .input_field{
-    font-size: 20px;
+    font-size: 15px;
     border: none;
-      border-bottom: 1px solid #000000;
+      border-bottom: 1px solid #ffffff;
       border-radius: 0;
       border-top-left-radius: 0.25rem;
       border-top-right-radius: 0.25rem;
       background-color: #f5f5f500;
-
+    color: $white;;
     width: 200px;
 }
 
@@ -80,10 +84,6 @@
 }
 
 
-.input_field::placeholder{
-    color: transparent;
-}
-
 .input_field:focus + label{
     font-size: 12px;
     margin: -15px 0px 0px 1px;
@@ -101,6 +101,13 @@
     font-weight: 500;
     font-size: 20px;
     border-radius: 5px;
+
+    background: linear-gradient(317deg, #ff0000, #000000);
+    background-size: 400% 400%;
+
+    -webkit-animation: gradient 5s ease infinite;
+    -moz-animation: gradient 5s ease infinite;
+    animation: gradient 5s ease infinite;
 }
 
 .request_btn:hover{
@@ -119,4 +126,22 @@
     font-weight: 500;
     color: #DD0000;
     display:none;
+}
+
+
+
+@-webkit-keyframes gradient {
+    0%{background-position:5% 0%}
+    50%{background-position:96% 100%}
+    100%{background-position:5% 0%}
+}
+@-moz-keyframes gradient {
+    0%{background-position:5% 0%}
+    50%{background-position:96% 100%}
+    100%{background-position:5% 0%}
+}
+@keyframes gradient {
+    0%{background-position:5% 0%}
+    50%{background-position:96% 100%}
+    100%{background-position:5% 0%}
 }

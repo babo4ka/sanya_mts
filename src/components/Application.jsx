@@ -70,7 +70,7 @@ const Application = () => {
         <div className="container-fluid">
 
           {/* локация */}
-          <div className="row justify-content-center">
+          {/* <div className="row justify-content-center">
             <div className="col-md-8 location_holder">
 
               <label htmlFor="location_txt" className="location_item">
@@ -79,11 +79,11 @@ const Application = () => {
 
               <span id="location_txt" className="location_item">Республика Татарстан</span>
             </div>
-          </div>
+          </div> */}
           {/* конец локации */}
 
           {/* ссылка к жалобам и предложениям */}
-          <a href="#report_form" id="link_to_report">Жми сюда если есть жалобы или предложения по работе сайта!</a>
+          {/* <a href="#report_form" id="link_to_report">Жми сюда если есть жалобы или предложения по работе сайта!</a> */}
           {/* конец ссылки к жалобам и предложениям */}
 
           {/* контакты */}
@@ -91,10 +91,16 @@ const Application = () => {
           {/* конец контактов */}
 
           {/* акция */}
-          <div className="row justify-content-center action_holder mt-5">
+          {/* <div className="row justify-content-center action_holder mt-5">
             <h5>{config.stock}</h5>
-          </div>
+          </div> */}
           {/* конец акции */}
+
+          {/* заявка на звонок */}
+
+            <CallRequest />
+
+          {/* конец заявки на звонок */}
 
           {/* навигация по тарифам */}
 
@@ -124,11 +130,7 @@ const Application = () => {
 
           {/* конец каналов */}
 
-          {/* заявка на звонок */}
 
-          <CallRequest />
-
-          {/* конец заявки на звонок */}
 
 
           {/* контакты снизу */}
