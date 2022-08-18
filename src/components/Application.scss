@@ -1,0 +1,57 @@
+.tags_dropdown{
+    background-color: #ffffff36;
+    border-radius: 5px;
+}
+
+.tags_dropdown_holder{
+    padding-left: 50px;
+}
+
+.dropdown-toggle{
+    color: rgb(1, 1, 1);
+    text-decoration: none;
+    color: white;
+}
+
+.dropdown-toggle:hover{
+    color:white;
+}
+
+.dropdown-menu{
+    padding: 5px 15px;
+    min-width: 50px;
+    background-color: #0B0B0C;
+    color: white;
+}
+
+.delete_btn_holder{
+    max-width: 90px;
+}
+
+.tags_holder{
+    display: flex;
+    flex-direction: row;
+    padding-left: 35px;
+}
+
+.delete_tag_btn{
+    padding: 2.5px 10px;
+    background-color: #ff00005a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 5px;
+    font-size: 10px;
+}
+
+
+.tune_tags_btn{
+    border: none;
+    border-radius: 5px;
+    background-color: #ff00005a;
+    color: white;
+}
+
+.low_contacts{
+    color: white;
+}

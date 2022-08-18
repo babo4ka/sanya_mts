@@ -13,58 +13,24 @@ const CallRequest = () =>{
 
         $(window).resize(()=>{
 
-            
-            // if($(window).width() > 991){
-            //     $('.name_validation, .phone_validation').css('margin', bigStyles_validation.margin)
-            //     $('.name_validation, .phone_validation').css('top', bigStyles_validation.top)
-            //     //$('.name_validation, .phone_validation').css('left', bigStyles_validation.left)
-            //     $('.name_validation, .phone_validation').css('text-align', bigStyles_validation.text_align)
-            // }else{
-            //     $('.name_validation, .phone_validation').css('margin-left', littleStyles_validation.margin_left)
-            //     $('.name_validation, .phone_validation').css('margin-top', littleStyles_validation.margin_top)
-            //     $('.name_validation, .phone_validation').css('top', littleStyles_validation.top)
-            //     //$('.name_validation, .phone_validation').css('left', littleStyles_validation.left)
-            //     $('.name_validation, .phone_validation').css('text-align', littleStyles_validation.text_align)
-            // }
-        })
-
-        $(window).ready(()=>{
-            // littleStyles.normal_margin_l = -$('.input_field, .input_holder label').width()/2;
-            // littleStyles.normal_margin_t = -$('.input_field, .input_holder label').height()/2;
-
-            // littleStyles.float_margin_l = -$('.input_field, .input_holder label').width()/2;
-            // littleStyles.float_margin_t = -$('.input_field, .input_holder label').height()/2 - 15;
-            
-            
-
             if($(window).width()<=991){
-                // $('.input_field, .input_holder label')
-                // .css('margin-left', -$('.input_field, .input_holder label').width()/2)
-
-                // $('.input_field, .input_holder label')
-                // .css('margin-top', -$('.input_field, .input_holder label').height()/2)
-
-                // $('.input_field, .input_holder label').css('left', '50%')
-                // $('.input_field, .input_holder label').css('top', '50%')
-
-                // $('.name_validation, .phone_validation').css('margin-left', littleStyles_validation.margin_left)
-                // $('.name_validation, .phone_validation').css('margin-top', littleStyles_validation.margin_top)
-                // $('.name_validation, .phone_validation').css('top', littleStyles_validation.top)
-                // //$('.name_validation, .phone_validation').css('left', littleStyles_validation.left)
-                // $('.name_validation, .phone_validation').css('text-align', littleStyles_validation.text_align)
+                $('.name_validation, .phone_validation').css('margin', '40px 0px 1px 25px')
             }
             
-            // if($(window).width()>991){
-            //     $('.input_field, .input_holder label').css('margin', '0px 0px 5px 1px')
+            if($(window).width()>991){
+                $('.name_validation, .phone_validation').css('margin', '40px 0px 1px 45px')
+            }
+        })
 
-            //     $('.input_field, .input_holder label').css('left', '0')
-            //     $('.input_field, .input_holder label').css('top', '0')
-
-            //     $('.name_validation, .phone_validation').css('margin', bigStyles_validation.margin)
-            //     $('.name_validation, .phone_validation').css('top', bigStyles_validation.top)
-            //     //$('.name_validation, .phone_validation').css('left', bigStyles_validation.left)
-            //     $('.name_validation, .phone_validation').css('text-align', bigStyles_validation.text_align)
-            // }
+        $(window).ready(()=>{            
+            
+            if($(window).width()<=991){
+                $('.name_validation, .phone_validation').css('margin', '40px 0px 1px 45px')
+            }
+            
+            if($(window).width()>991){
+                $('.name_validation, .phone_validation').css('margin', '40px 0px 1px 25px')
+            }
         })
         
     }, [])

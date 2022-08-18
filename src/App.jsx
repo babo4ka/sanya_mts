@@ -7,9 +7,11 @@ import {
   Link
 } from "react-router-dom";
 import PrivacyPolicy from './components/PrivacyPolicy';
+import { Provider } from 'react-redux';
+import {store} from "./store/store"
 function App() {
     return(
-      // <Application/>
+      <Provider store={store}>
 
       <Router>
         
@@ -21,6 +23,7 @@ function App() {
         </Routes>
 
       </Router>
+      </Provider>
     )
 }
 

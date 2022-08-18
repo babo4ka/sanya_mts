@@ -56,12 +56,7 @@
     cursor: text;
 }
 
-.input_field, .input_holder label{
-    position: absolute;
-    left:0;top:0;
-    padding: 15px 2px 4px 10px;
-    margin: 0px 0px 5px 1px;
-}
+
 
 .input_holder .validation{
     width: 200px;
@@ -70,7 +65,7 @@
     position: absolute;
     left:0;top:0;
     padding: 15px 2px 4px 10px;
-    margin: 40px 0px 1px 1px;
+    margin: 40px 0px 1px 45px;
 }
 
 @media screen and(max-width:991px) {

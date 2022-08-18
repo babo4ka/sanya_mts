@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import telegram_icon from '../icons/black/telegram.png'
 import sanya from '../саня.jpg'
 import './Contact.scss'
@@ -5,10 +6,11 @@ import './Contact.scss'
 const config = require('../config.json')
 
 const Contact = () =>{
+
     
     return(
         <div className="contacts_info_holder mt-5 container">
-            <div className="row justify-content-start">
+            <div className="row justify-content-center">
             <h5 className="col-12 phone_tg text-center agent_info_little">{config.contacts.agent}</h5>
                 <div className="col-md-4 avatar_holder">
                     <img src={sanya} alt="" className="avatar"></img>

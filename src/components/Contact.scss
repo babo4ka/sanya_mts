@@ -31,6 +31,10 @@ $side_h:175px;
     color: $white;
 }
 
+.agent_info_little{
+    color: white;
+}
+
 @media (min-width:768px){
     .agent_info_little{
         display: none;
@@ -40,6 +44,14 @@ $side_h:175px;
 @media (max-width:768px){
     .agent_info_large{
         display: none;
+    }
+
+    .avatar_holder{
+        margin: 15px 0;
+    }
+
+    .about_info_holder{
+        text-align: center!important;
     }
 }
 

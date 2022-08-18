@@ -8,6 +8,17 @@
     font-weight: 500;
     font-size: 20px;
     border-radius: 5px;
+
+    background: linear-gradient(317deg, #ff0000, #000000);
+    background-size: 400% 400%;
+
+    -webkit-animation: gradient 5s ease infinite;
+    -moz-animation: gradient 5s ease infinite;
+    animation: gradient 5s ease infinite;
+}
+
+#report_form{
+    color: white;
 }
 
 #report_btn:hover{
@@ -21,4 +32,20 @@
       border-top-left-radius: 0.25rem;
       border-top-right-radius: 0.25rem;
       background-color: #b2b2b280;
+}
+
+@-webkit-keyframes gradient {
+    0%{background-position:5% 0%}
+    50%{background-position:96% 100%}
+    100%{background-position:5% 0%}
+}
+@-moz-keyframes gradient {
+    0%{background-position:5% 0%}
+    50%{background-position:96% 100%}
+    100%{background-position:5% 0%}
+}
+@keyframes gradient {
+    0%{background-position:5% 0%}
+    50%{background-position:96% 100%}
+    100%{background-position:5% 0%}
 }

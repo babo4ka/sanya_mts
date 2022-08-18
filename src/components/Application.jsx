@@ -1,5 +1,6 @@
 import location_icon from '../icons/gray/location_gray.png'
 import Contact from './Contact';
+import "./Application.scss"
 import TariffBtn from './TariffBtn';
 import { Provider } from 'react-redux';
 import { store } from '../store/store';
@@ -11,12 +12,16 @@ import ReportWindow from './ReportWindow';
 import { useEffect, useState } from 'react';
 import $ from 'jquery'
 import Channels from './Channels';
+import { useDispatch } from 'react-redux';
+import {set_tags_action} from "../store/tariffBtnReducer"
 const config = require('../config.json')
 const Application = () => {
 
   const [tariffsToShow, setTariffsToShow] = useState(store.getState().cards.tariffCards)
   const [choosedTags, setChoosedTags] = useState(store.getState().btns.tags)
+  const dispatch = useDispatch();
 
+  
   const setCards = () => {
     let tags = store.getState().btns.tags
     let cards = store.getState().cards.tariffCards.map(card => {
@@ -36,6 +41,33 @@ const Application = () => {
     setChoosedTags(store.getState().btns.tags)
   }
 
+  const tuneTags = ()=>{
+    let tagsChecks = $('.tag_check')
+    let tags = []
+    for(let i=0;i<tagsChecks.length;i++){
+      if($(tagsChecks[i]).prop("checked")){
+        tags.push($(tagsChecks[i]).val())
+      }
+    }
+    dispatch(set_tags_action(tags))
+    setCards()
+  }
+
+  const removeTag = (tag)=>{
+    let tags = choosedTags
+    tags = tags.filter(t => t!=tag)
+    let tagsChecks = $('.tag_check')
+    for(let i=0;i<tagsChecks.length;i++){
+      console.log(tagsChecks[i])
+      if($(tagsChecks[i]).val() == tag){
+        console.log(tag)
+        $(tagsChecks[i]).prop("checked", false)
+      }
+    }
+    dispatch(set_tags_action(tags))
+    setCards()
+  }
+
   const tariffsTranslate = new Map([
     ['wifi', 'интернет'],
     ['tv', 'ТВ'],
@@ -43,6 +75,10 @@ const Application = () => {
   ])
 
   useEffect(async () => {
+
+    $(".dropdown_input").click((e)=>{
+      e.stopPropagation()
+    })
 
     $(window).resize(() => {
       if ($(window).width() > 576) {
@@ -64,23 +100,11 @@ const Application = () => {
     })
   })
 
+
+
   return (
-    <Provider store={store}>
       <div className="App">
         <div className="container-fluid">
-
-          {/* локация */}
-          {/* <div className="row justify-content-center">
-            <div className="col-md-8 location_holder">
-
-              <label htmlFor="location_txt" className="location_item">
-                <img id="location_icon" src={location_icon} alt=""></img>
-              </label>
-
-              <span id="location_txt" className="location_item">Республика Татарстан</span>
-            </div>
-          </div> */}
-          {/* конец локации */}
 
           {/* ссылка к жалобам и предложениям */}
           {/* <a href="#report_form" id="link_to_report">Жми сюда если есть жалобы или предложения по работе сайта!</a> */}
@@ -104,18 +128,30 @@ const Application = () => {
 
           {/* навигация по тарифам */}
 
-          <div className="row justify-content-start mt-5 tariffs_nav_holder" id="tariffs_navigation_holder">
-            <span className="text-start mb-3 tags_info">Выберите нужные теги для поиска тарифа: </span>
-            <TariffBtn id="wifi" tag="wifi" setCardsToShow={setCards} />
-            <TariffBtn id="tv" tag="tv" setCardsToShow={setCards} />
-            <TariffBtn id="phone" tag="mobile" setCardsToShow={setCards} />
-            <span className="text-start mt-5 tags_info">
-              {choosedTags.length > 0 ? (
-                `Вот ${tariffsToShow.length} тарифов, которые содержат теги: ${choosedTags.map(tag => tariffsTranslate.get(tag))}`
-              ) : (
-                `Не выбрано ни одного тега, вот все тарифы`
-              )}
-            </span>
+
+          <div className="row mt-3 tags_dropdown_holder">
+            <div class="dropdown col-lg-2 col-md-4 col-8 col-sm-6 tags_dropdown">
+              <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                Настроить теги
+              </a>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li className="dropdown_input"><label><input className="tag_check" value="wifi" type="checkbox"/>интернет</label></li>
+                <li className="dropdown_input"><label><input className="tag_check" value="tv" type="checkbox"/>тв</label></li>
+                <li className="dropdown_input"><label><input className="tag_check" value="mobile" type="checkbox"/>мобайл</label></li>
+                <li><button onClick={tuneTags} className="tune_tags_btn">применить</button></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="tags_holder">
+            {choosedTags.map(tag => (
+              <div className="delete_btn_holder">
+                <button onClick={()=>removeTag(tag)} className='delete_tag_btn'>
+                {tariffsTranslate.get(tag)} x
+                </button>
+              </div>
+            ))}
           </div>
 
           {/* конец навигации по тарифам */}
@@ -131,10 +167,8 @@ const Application = () => {
           {/* конец каналов */}
 
 
-
-
           {/* контакты снизу */}
-          <div className="row justify-content-center mt-5">
+          <div className="row justify-content-center mt-5 low_contacts">
             <div className="col-md-6">
               <h5 className="col-12 phone_tg">Александр:</h5>
               <div className="col-12">
@@ -162,7 +196,6 @@ const Application = () => {
           </div>
         </div>
       </div>
-    </Provider>
   );
 }
 
