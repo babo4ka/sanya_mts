@@ -129,7 +129,7 @@ const Application = () => {
           {/* навигация по тарифам */}
 
 
-          <div className="row mt-3 tags_dropdown_holder">
+          <div className="row mt-3 tags_dropdown_holder"  id="tariffs_tags">
             <div class="dropdown col-lg-2 col-md-4 col-8 col-sm-6 tags_dropdown">
               <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                 Настроить теги

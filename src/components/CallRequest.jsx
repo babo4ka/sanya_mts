@@ -82,7 +82,9 @@ const CallRequest = () =>{
             
             <div className="row justify-content-center">
                 <span className="request_text mt-2">Оставьте номер телефона и я позвоню Вам и проконсультирую по всем тарифам и акциям</span>
-                <span className="request_text mt-2">Или выберите один из тарифов ниже и я проконсультирую Вас по выбранному тарифу</span>
+                <span className="request_text mt-2">Или выберите один из тарифов 
+                <a href="#tariffs_tags" id="link_to_tariffs"> ниже </a>
+                и я проконсультирую Вас по выбранному тарифу</span>
 
                 <form onSubmit={sendMessage} className="needs-validation row justify-content-center mt-2 pb-3" id="request_form">
 
