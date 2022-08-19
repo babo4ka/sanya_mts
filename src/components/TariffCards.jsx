@@ -48,63 +48,18 @@ const TariffCard = ({ config, index }) => {
             }
         })
     }, [])
-
+console.log(config)
     return (
         // контейнер для карточки
         <div className={`col-lg-6 col-10 container tariff_card_holder`}>
             <div className="row justify-content-center">
 
-                {/* левая колонка */}
-                <div className="col-6 card_cols left_col text-start">
-                    {/* название тарифа */}
-                    <span className="tariff_name">{config.name}</span>
-                    {/* услуги тарифа */}
-                    {config.services.map(service => (
-                        <div key={service.name} className="services_holder mt-2">
-                            <label htmlFor={`service${service.name}`}>
-                                <img src={require(`../icons/red/${service.icon}`)} alt="" className="service_icon" />
-                            </label>
-                            <div id={`service${service.name}`} className="service">
-                                <span>{service.name}</span>
-                                <span>{service.value}</span>
-                            </div>
-                        </div>
-                    ))}
-                    {config.extra?(
-                        <div>
-                            <div className="extra_info_holder mt-3">
-                                <button data-toggle="collapse" data-target={`#extra_collapse_${index}`} id={`extra_shower_${index}`} onClick={()=>showExtra(index)}><img src={require('../icons/white/arrow.png')} alt='' /></button>
-                                <span>Дополнительно</span>
-                            </div>
-                        </div>
-                    ):("")}
-                </div>
+                <span className="tariff_name">{config.name}</span>
+                <span className="price">{config.price} руб./месяц</span>
 
-                {/* правая колонка */}
-                <div className="col-6 card_cols right_col">
-                    {/* тип тарифа */}
-                    <div className=" type_holder">
-                        <span className="text-end">{config.type}</span>
-                    </div>
-                    {/* оборудование */}
-                    {config.equip ? (
-                        <div className="equip_holder mt-2">
-                            <span>Оборудование:</span>
-                            {config.equip.map(eq => (
-                                <span className="mt-2" key={eq.value}>{eq.value}</span>
-                            ))}
-                        </div>
-                    ) : ("")}
-
-                    {/* цена тарифа */}
-                    <div className="mt-2">
-                        <span className="price">{config.price} руб./месяц</span>
-                    </div>
-                    {/* подключение */}
-                    <div className="gen_btns mt-2 mb-2">
-                        <button onClick={setConsultationTariff} className="col-6 get_btn connect_btn" data-bs-toggle='modal' data-bs-target='#request_modal'>Подключить</button>
-                        {/* <button onClick={changeIndex} data-bs-toggle='modal' data-bs-target='#more_modal' className="col-6 get_btn more_btn">Подробнее</button> */}
-                    </div>
+                <div className="popup_info row justify-content-center">
+                    <span>{config.short}</span>
+                    <button className="connect_btn">Узнать больше</button>
                 </div>
 
                 {/* колонка для смартфонов */}

@@ -9,7 +9,6 @@ const config = require('../config.json')
 const TariffBtn = ({id, tag, setCardsToShow}) =>{
 //1043
     const dispatch = useDispatch();
-    //const setCards = useSelector(state => state.funcs.setCards)
 
 
     const ownTag = tag

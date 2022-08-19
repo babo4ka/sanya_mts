@@ -3,11 +3,12 @@
 // основное
 .tariff_card_holder{
     position: relative;
-    max-width: 430px;
+    max-width: 350px;
     min-height: 150px;
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 10px 1px rgba(255, 255, 255, 0.25);
     border-radius: 10px;
-    background-color: $black;
+    background: linear-gradient(317deg, #ff0000, #000000);
+    background-size: 400% 400%;
 
     padding: 10px 10px;
 
@@ -82,6 +83,7 @@
 .tariff_name{
     font-size: 20px;
     font-weight: 500;
+    color: #FF0000;
 }
 
 .services_holder{
@@ -140,6 +142,12 @@
 .price{
     font-size: 20px;
     font-weight: 500;
+    color: white;
+
+    text-shadow: 1px 0 1px #FF0000, 
+        0 1px 1px #FF0000, 
+        -1px 0 1px #FF0000, 
+        0 -1px 1px #FF0000;
 }
 
 .get_btns{
@@ -156,7 +164,17 @@
     border: none;
     border-radius: 5px;
     color: $white;
-    background-color: $red;
+
+    max-height: 35px;
+    max-width: 150px;
+    font-weight: 500;
+
+    background: linear-gradient(317deg, #ff0000, #000000);
+    background-size: 400% 400%;
+
+    -webkit-animation: gradient 5s ease infinite;
+    -moz-animation: gradient 5s ease infinite;
+    animation: gradient 5s ease infinite;
 }
 
 .connect_btn:hover{
@@ -187,4 +205,42 @@
     .right_col, .left_col{
         display: none;
     }
+}
+
+.tariff_card_holder:hover + .popup_info,
+.popup_info:hover{
+    height: 60%;
+}
+
+.popup_info{
+    background-color: rgba(0, 0, 0, 0.315);
+    color: white;
+    font-weight: 500;
+    position: absolute;
+    bottom: 0;
+    overflow:auto;
+    border-radius: 0 0 10px 10px;
+
+    -webkit-transition: height .5s;
+    transition: height .5s;
+    height: 0;
+}
+
+
+
+
+@-webkit-keyframes gradient {
+    0%{background-position:5% 0%}
+    50%{background-position:96% 100%}
+    100%{background-position:5% 0%}
+}
+@-moz-keyframes gradient {
+    0%{background-position:5% 0%}
+    50%{background-position:96% 100%}
+    100%{background-position:5% 0%}
+}
+@keyframes gradient {
+    0%{background-position:5% 0%}
+    50%{background-position:96% 100%}
+    100%{background-position:5% 0%}
 }
