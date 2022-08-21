@@ -1,19 +1,15 @@
-import location_icon from '../icons/gray/location_gray.png'
 import Contact from './Contact';
 import "./Application.scss"
-import TariffBtn from './TariffBtn';
-import { Provider } from 'react-redux';
 import { store } from '../store/store';
 import TariffCards from './TariffCards';
 import telegram_icon from '../icons/black/telegram.png'
 import CallRequest from './CallRequest';
-import ModalCallRequest from './ModalCallRequest';
 import ReportWindow from './ReportWindow';
 import { useEffect, useState } from 'react';
 import $ from 'jquery'
-import Channels from './Channels';
 import { useDispatch } from 'react-redux';
 import {set_tags_action} from "../store/tariffBtnReducer"
+import ModalInfo from './ModalInfo';
 const config = require('../config.json')
 const Application = () => {
 
@@ -58,9 +54,7 @@ const Application = () => {
     tags = tags.filter(t => t!=tag)
     let tagsChecks = $('.tag_check')
     for(let i=0;i<tagsChecks.length;i++){
-      console.log(tagsChecks[i])
       if($(tagsChecks[i]).val() == tag){
-        console.log(tag)
         $(tagsChecks[i]).prop("checked", false)
       }
     }
@@ -106,19 +100,11 @@ const Application = () => {
       <div className="App">
         <div className="container-fluid">
 
-          {/* ссылка к жалобам и предложениям */}
-          {/* <a href="#report_form" id="link_to_report">Жми сюда если есть жалобы или предложения по работе сайта!</a> */}
-          {/* конец ссылки к жалобам и предложениям */}
 
           {/* контакты */}
           <Contact />
           {/* конец контактов */}
 
-          {/* акция */}
-          {/* <div className="row justify-content-center action_holder mt-5">
-            <h5>{config.stock}</h5>
-          </div> */}
-          {/* конец акции */}
 
           {/* заявка на звонок */}
 
@@ -130,12 +116,12 @@ const Application = () => {
 
 
           <div className="row mt-3 tags_dropdown_holder"  id="tariffs_tags">
-            <div class="dropdown col-lg-2 col-md-4 col-8 col-sm-6 tags_dropdown">
-              <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            <div className="dropdown col-lg-2 col-md-4 col-8 col-sm-6 tags_dropdown">
+              <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                 Настроить теги
               </a>
 
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <li className="dropdown_input"><label><input className="tag_check" value="wifi" type="checkbox"/>интернет</label></li>
                 <li className="dropdown_input"><label><input className="tag_check" value="tv" type="checkbox"/>тв</label></li>
                 <li className="dropdown_input"><label><input className="tag_check" value="mobile" type="checkbox"/>мобайл</label></li>
@@ -146,7 +132,7 @@ const Application = () => {
           
           <div className="tags_holder">
             {choosedTags.map(tag => (
-              <div className="delete_btn_holder">
+              <div key={tag} className="delete_btn_holder">
                 <button onClick={()=>removeTag(tag)} className='delete_tag_btn'>
                 {tariffsTranslate.get(tag)} x
                 </button>
@@ -159,12 +145,6 @@ const Application = () => {
           {/* тарифы */}
           <TariffCards cardsToRender={tariffsToShow} />
           {/* конец тарифов */}
-
-          {/* каналы */}
-
-          <Channels />
-
-          {/* конец каналов */}
 
 
           {/* контакты снизу */}
@@ -184,12 +164,9 @@ const Application = () => {
           {/* конец формы для жалоб и предложений */}
 
           {/* модальное окно для заказа звонка по конкретному тарифу */}
-          <ModalCallRequest />
+          <ModalInfo cards={tariffsToShow}/>
           {/* конец модального окна для заказа звонка по конкретному тарифу */}
 
-          {/* подробнее */}
-          {/* <MoreWindow/> */}
-          {/* конец подробнее */}
 
           <div>
 

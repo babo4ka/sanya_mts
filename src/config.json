@@ -30,7 +30,7 @@
                 {
                     "name":"Интернет",
                     "value":"до 200 Мбит/сек.",
-                    "icon":"wifi_red.png"
+                    "icon":"wifi_white.png"
                 }
             ],
             "equip":[
@@ -49,7 +49,7 @@
                 {
                     "name":"Интернет",
                     "value":"500 Мбит/сек.",
-                    "icon":"wifi_red.png"
+                    "icon":"wifi_white.png"
                 }
             ],
             "equip":[
@@ -68,12 +68,12 @@
                 {
                     "name":"Интернет",
                     "value":"до 200 Мбит/сек.",
-                    "icon":"wifi_red.png"
+                    "icon":"wifi_white.png"
                 },
                 {
                     "name":"Домашнее ЦТВ",
                     "value":"222 канала",
-                    "icon":"tv_red.png"
+                    "icon":"tv_white.png"
                 }
             ],
             "equip":[
@@ -95,12 +95,12 @@
                 {
                     "name":"Интернет",
                     "value":"500 Мбит/сек.",
-                    "icon":"wifi_red.png"
+                    "icon":"wifi_white.png"
                 },
                 {
                     "name":"Домашнее ЦТВ",
                     "value":"222 канала",
-                    "icon":"tv_red.png"
+                    "icon":"tv_white.png"
                 }
             ],
             "equip":[
@@ -122,7 +122,7 @@
                 {
                     "name":"Домашнее ЦТВ",
                     "value":"222 канала",
-                    "icon":"tv_red.png"
+                    "icon":"tv_white.png"
                 }
             ],
             "equip":[
@@ -144,17 +144,17 @@
                 {
                     "name":"Интернет",
                     "value":"до 200 Мбит/с",
-                    "icon":"wifi_red.png"
+                    "icon":"wifi_white.png"
                 },
                 {
                     "name":"Домашнее ЦТВ",
                     "value":"222 канала",
-                    "icon":"tv_red.png"
+                    "icon":"tv_white.png"
                 },
                 {
                     "name":"Мобильная связь",
                     "value":"1500 минут, 30 Гб",
-                    "icon":"phone_red.png"
+                    "icon":"phone_white.png"
                 }
             ],
             "equip":[
@@ -190,12 +190,12 @@
                 {
                     "name":"Интернет",
                     "value":"до 200 Мбит/с",
-                    "icon":"wifi_red.png"
+                    "icon":"wifi_white.png"
                 },
                 {
                     "name":"Мобильная связь",
                     "value":"1500 минут, 30 Гб",
-                    "icon":"phone_red.png"
+                    "icon":"phone_white.png"
                 }
             ],
             "equip":[
@@ -225,12 +225,12 @@
                 {
                     "name":"Домашнее ЦТВ",
                     "value":"222 канала",
-                    "icon":"tv_red.png"
+                    "icon":"tv_white.png"
                 },
                 {
                     "name":"Мобильная связь",
                     "value":"1500 минут, 30 Гб",
-                    "icon":"phone_red.png"
+                    "icon":"phone_white.png"
                 }
             ],
             "equip":[
@@ -263,17 +263,17 @@
                 {
                     "name":"Интернет",
                     "value":"до 100 Мбит/с",
-                    "icon":"wifi_red.png"
+                    "icon":"wifi_white.png"
                 },
                 {
                     "name":"Домашнее ЦТВ",
                     "value":"222 канала",
-                    "icon":"tv_red.png"
+                    "icon":"tv_white.png"
                 },
                 {
                     "name":"Мобильная связь",
                     "value":"2500 минут, 40 Гб + 40 Гб другу",
-                    "icon":"phone_red.png"
+                    "icon":"phone_white.png"
                 }
             ],
             "equip":[
@@ -312,17 +312,17 @@
                 {
                     "name":"Интернет",
                     "value":"до 500 Мбит/с",
-                    "icon":"wifi_red.png"
+                    "icon":"wifi_white.png"
                 },
                 {
                     "name":"Домашнее ЦТВ",
                     "value":"222 канала",
-                    "icon":"tv_red.png"
+                    "icon":"tv_white.png"
                 },
                 {
                     "name":"Мобильная связь",
                     "value":"2500 минут, 40 Гб + 40 Гб другу",
-                    "icon":"phone_red.png"
+                    "icon":"phone_white.png"
                 }
             ],
             "equip":[

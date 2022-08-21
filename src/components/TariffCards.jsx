@@ -1,5 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { change_consultation_tariff } from '../store/consultationReducer';
+import { useDispatch} from 'react-redux';
 import './TariffCards.scss';
 import $ from 'jquery'
 import { change_index } from '../store/tariffCardReducer';
@@ -10,45 +9,13 @@ const TariffCard = ({ config, index }) => {
 
     const dispatch = useDispatch();
 
-    const setConsultationTariff = () => {
-        $('#input_field_3').text('')
-        $('#input_field_4').text('')
-        dispatch(change_consultation_tariff(config.name));
-    }
 
     const changeIndex = () => {
         dispatch(change_index(index))
     }
 
-    const [angle, setAngle] = useState(0)
-    const showExtra = (index) => {
-        $(`#extra_shower_${index} img`).css('transform', `rotate(${angle}deg)`)
-        setAngle(Math.abs(angle-180))
-    }
 
-    useEffect(async ()=>{
-        
-        $(window).resize(()=>{
-            if($(window).width() > 576){
-                if($(`#extra_collapse_${index}`).hasClass('text-start'))return
-                $(`#extra_collapse_${index}`).toggleClass('text-start').toggleClass('text-center')
-            }else{
-                if($(`#extra_collapse_${index}`).hasClass('text-center'))return
-                $(`#extra_collapse_${index}`).toggleClass('text-center').toggleClass('text-start')
-            }
-        })       
-        
-        $(window).ready(()=>{
-            if($(window).width() > 576){
-                if($(`#extra_collapse_${index}`).hasClass('text-start'))return
-                $(`#extra_collapse_${index}`).toggleClass('text-start').toggleClass('text-center')
-            }else{
-                if($(`#extra_collapse_${index}`).hasClass('text-center'))return
-                $(`#extra_collapse_${index}`).toggleClass('text-center').toggleClass('text-start')
-            }
-        })
-    }, [])
-console.log(config)
+
     return (
         // контейнер для карточки
         <div className={`col-lg-6 col-10 container tariff_card_holder`}>
@@ -59,62 +26,15 @@ console.log(config)
 
                 <div className="popup_info row justify-content-center">
                     <span>{config.short}</span>
-                    <button className="connect_btn">Узнать больше</button>
+                    <button className="connect_btn" data-bs-toggle="modal" data-bs-target="#info_modal" onClick={changeIndex}>Узнать больше</button>
                 </div>
 
                 {/* колонка для смартфонов */}
-                <div className="middle_col card_cols col-12">
-                    <span className="tariff_name">{config.name}</span>
-                    {/* услуги тарифа */}
-                    {config.services.map(service => (
-                        <div key={service.name} className="services_holder mt-2">
-                            <label htmlFor={`service${service.name}`}>
-                                <img src={require(`../icons/red/${service.icon}`)} alt="" className="service_icon" />
-                            </label>
-                            <div id={`service${service.name}`} className="service">
-                                <span>{service.name}</span>
-                                <span>{service.value}</span>
-                            </div>
-                        </div>
-                    ))}
-                    {/* оборудование */}
-                    {config.equip ? (
-                        <div className="equip_holder mt-2">
-                            <span>Оборудование:</span>
-                            {config.equip.map(eq => (
-                                <span className="mt-2" key={eq.value}>{eq.value}</span>
-                            ))}
-                        </div>
-                    ) : ("")}
-
-                    {/* цена тарифа */}
-                    <div className="mt-2">
-                        <span className="price">{config.price} руб./месяц</span>
-                    </div>
-                    {/* подключение */}
-                    <div className="gen_btns mt-2 mb-2">
-                        <button onClick={setConsultationTariff} className="col-6 get_btn connect_btn" data-bs-toggle='modal' data-bs-target='#request_modal'>Подключить</button>
-                        {/* <button onClick={changeIndex} data-bs-toggle='modal' data-bs-target='#more_modal' className="col-6 get_btn more_btn">Подробнее</button> */}
-                    </div>
-
-                    {config.extra?(
-                    <div>
-                        <div className="extra_info_holder mt-3">
-                            <button data-toggle="collapse" data-target={`#extra_collapse_${index}`} id={`extra_shower_${index}`} onClick={()=>showExtra(index)}><img src={require('../icons/white/arrow.png')} alt='' /></button>
-                            <span>Дополнительно</span>
-                        </div>
-                    </div>
-                    ):("")}
+                <div className="middle_col card_cols col-12 mt-3">
+                    <span>{config.short}</span>
+                    <button className="connect_btn col-12 mt-3" data-bs-toggle="modal" data-bs-target="#info_modal" onClick={changeIndex}>Узнать больше</button>
                 </div>
 
-                {/* Дополнительно */}
-                <div className="row justify-content-start extra_full_holder mt-2">
-                    <div className="collapse extra_collapse col-12 text-start" id={`extra_collapse_${index}`}>
-                        {config.extra?.map(ex=>(
-                            <span key={ex.value}>{ex.value}</span>
-                        ))}
-                    </div>
-                </div>
             </div>
         </div>
     )
@@ -140,7 +60,7 @@ const TariffCards = ({ cardsToRender }) => {
                 if(!big){
                     setIndexes(prev=>{
                         let newI = JSON.parse(JSON.stringify(prev))
-                        newI['second'] = newI.first + 1
+                        newI['second'] = newI.first + 1 == cardsToRender.length?0:newI.first+1
 
                         return newI
                     })
@@ -160,18 +80,18 @@ const TariffCards = ({ cardsToRender }) => {
         })
     }, [])
 
-    useEffect(async ()=>{
-        if(cardsToRender.length == 0){
-            setIndexes($(window).width()>1059?
-            {
-                first:0,
-                second:1
-            }:{
-                first:0,
-                second:undefined
-            })
-        }
-    }, [cardsToRender])
+    // useEffect(async ()=>{
+    //     if(cardsToRender.length == 0){
+    //         setIndexes($(window).width()>1059?
+    //         {
+    //             first:0,
+    //             second:1
+    //         }:{
+    //             first:0,
+    //             second:undefined
+    //         })
+    //     }
+    // }, [cardsToRender])
 
     const goNext = ()=>{
         $('#tariff_cards').fadeToggle('fast', ()=>{

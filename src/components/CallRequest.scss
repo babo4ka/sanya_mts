@@ -19,7 +19,7 @@
     position: relative;
     padding: 20px;
 
-    margin: 30px 5px;
+    margin: 15px 5px;
 }
 
 .input_field{
@@ -44,20 +44,6 @@
     border-radius: 5px;
 }
 
-.name_validation_invalid{
-    box-shadow: 0px 0px 10px 1px rgb(0, 255, 21);
-    border: none;
-    border-radius: 5px;
-}
-
-.input_holder label{
-    color: rgb(187, 187, 187);
-    transition: all .1s ease-in-out;
-    cursor: text;
-}
-
-
-
 .input_holder .validation{
     width: 200px;
     text-align: start;
@@ -76,17 +62,6 @@
 
 .validation_hidden{
     display: none;
-}
-
-
-.input_field:focus + label{
-    font-size: 12px;
-    margin: -15px 0px 0px 1px;
-}
-
-.input_field:not(:placeholder-shown) + label{
-    font-size: 12px;
-    margin: -15px 0px 0px 1px;
 }
 
 .request_btn{
@@ -111,10 +86,6 @@
 
 .request_btn:hover{
     background-color: #ec4141;
-}
-
-.name_validation{
-    color: rgb(0, 177, 0);
 }
 
 .phone_validation{

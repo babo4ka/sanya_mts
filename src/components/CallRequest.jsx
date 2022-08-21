@@ -90,13 +90,10 @@ const CallRequest = () =>{
 
                     <div id="input_holder_1" className="col-lg-4 input_holder">
                         <input onChange={clearValidation} className="input_field" id="input_field_1" type="text" name="caller_name" placeholder='Имя(необязательно)'></input>
-                        {/* <label htmlFor="input_field_1">Имя</label> */}
-                        {/* <span className="validation name_validation val_main">Было бы неплохо, если бы я знал как к Вам обращаться :)</span> */}
                     </div>
                     
                     <div id="input_holder_2" className="col-lg-4 input_holder">
                         <input onChange={clearValidation} className="input_field" id="input_field_2" type="text" name="caller_phone" placeholder='Номер телефона'></input>
-                        {/* <label htmlFor="input_field_2">Номер телефона</label> */}
                         <span className="validation phone_validation val_main validation_hidden">Введите номер телефона</span>
                     </div>
                     

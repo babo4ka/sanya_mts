@@ -32,10 +32,8 @@
 
 .tariffs_holder_nav_btn_left{
     left:1%;
-    // transform: rotate(-90deg);
 }
 
-// карточка
 
 
 //левая колонка
@@ -51,34 +49,6 @@
     }
 }
 
-.extra_full_holder{
-    padding: 0;
-}
-
-.extra_info_holder button{
-    background: none;
-    border: none;
-
-    width: 24px;
-    height: 24px;
-
-    margin-right: 20px;
-}
-
-.extra_info_holder button img{
-    transform: rotate(180deg);
-
-}
-
-.extra_collapse{
-    display: flex;
-    flex-direction: column;
-
-    font-size: 12px;
-    margin-left: 10px;
-
-    color:$white;
-}
 
 .tariff_name{
     font-size: 20px;
@@ -89,21 +59,15 @@
 .services_holder{
     display: flex;
     flex-direction: row;
-    // vertical-align: middle;
 }
 
 .service{
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
+    margin: 0;
+    padding: 0;
 }
 
-.service span:first-child{
-    font-size: 15px;
-}
-.service span:last-child{
-    font-size: 10px;
-}
 
 .service_icon{
     height: 25px;
@@ -112,32 +76,7 @@
 
 // правая колонка
 
-.type_holder{
-    border: 1px solid white;
-    border-radius: 15px;
-    // padding: 5px;
-    padding: 5px 5px;
-    // width: 150px;
-    margin-left: auto;
-    margin-right: 0px;
 
-}
-
-.type_holder span{
-    font-size: 10px;
-}
-
-.equip_holder{
-    display: flex;
-    flex-direction: column;
-
-    font-size: 10px;
-}
-
-.equip_holder span:first-child{
-    font-size: 15px;
-    margin-bottom: 10px;
-}
 
 .price{
     font-size: 20px;
@@ -181,6 +120,7 @@
     background-color: #ec4141;
 }
 
+
 .more_btn{
     color: $red;
     border: none;
@@ -195,25 +135,26 @@
 
 // колонка для смартфонов
 
+.middle_col{
+    font-size: 15px;
+}
+
 @media(min-width:576px){
     .middle_col{
         display: none;
     }
 }
 
-@media(max-width:576px){
-    .right_col, .left_col{
-        display: none;
+
+@media(min-width:576px){
+    .tariff_card_holder:hover .row .popup_info,
+    .popup_info:hover{
+        height: 70%;
     }
 }
 
-.tariff_card_holder:hover + .popup_info,
-.popup_info:hover{
-    height: 60%;
-}
-
 .popup_info{
-    background-color: rgba(0, 0, 0, 0.315);
+    background-color: rgba(0, 0, 0, 0.548);
     color: white;
     font-weight: 500;
     position: absolute;
@@ -224,6 +165,8 @@
     -webkit-transition: height .5s;
     transition: height .5s;
     height: 0;
+
+    overflow-y: hidden;
 }
 
 
