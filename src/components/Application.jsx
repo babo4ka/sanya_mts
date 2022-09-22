@@ -70,6 +70,17 @@ const Application = () => {
 
   useEffect(async () => {
 
+    
+    let tariffs = await fetch(config.tariffs_url, {
+      method:"GET",
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      }
+    })
+    console.log(tariffs.headers.get('Content-Type'))
+
+
+
     $(".dropdown_input").click((e)=>{
       e.stopPropagation()
     })
