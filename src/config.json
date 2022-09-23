@@ -20,7 +20,7 @@
         }
     },
 
-    "tariffs_url":"192.168.0.103:8080/alltariffs",
+    "tariffs_url":"http://192.168.0.103:8080/alltariffs",
 
     "tariffConfig":[
         {

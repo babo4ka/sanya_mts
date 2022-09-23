@@ -10,6 +10,7 @@ import $ from 'jquery'
 import { useDispatch } from 'react-redux';
 import {set_tags_action} from "../store/tariffBtnReducer"
 import ModalInfo from './ModalInfo';
+import { load_tariffs } from '../store/tariffCardReducer';
 const config = require('../config.json')
 const Application = () => {
 
@@ -68,16 +69,19 @@ const Application = () => {
     ['mobile', 'мобайл']
   ])
 
+
   useEffect(async () => {
 
     
     let tariffs = await fetch(config.tariffs_url, {
       method:"GET",
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      }
+    }).then((response) =>{
+      return response.json()
+    }).then((data)=>{
+      dispatch(load_tariffs(data))
+      setTariffsToShow(data)
+      console.log(data)
     })
-    console.log(tariffs.headers.get('Content-Type'))
 
 
 
