@@ -9,8 +9,8 @@ import { useEffect, useState } from 'react';
 import $ from 'jquery'
 import { useDispatch } from 'react-redux';
 import {set_tags_action} from "../store/tariffBtnReducer"
-import ModalInfo from './ModalInfo';
 import { load_tariffs } from '../store/tariffCardReducer';
+import ModalInfo from './ModalInfo';
 const config = require('../config.json')
 const Application = () => {
 
@@ -73,7 +73,7 @@ const Application = () => {
   useEffect(async () => {
 
     
-    let tariffs = await fetch(config.tariffs_url, {
+    await fetch(config.tariffs_url, {
       method:"GET",
     }).then((response) =>{
       return response.json()
@@ -107,7 +107,7 @@ const Application = () => {
         $('.tags_info').addClass('text-center').removeClass('text-start')
       }
     })
-  })
+  }, [])
 
 
 
@@ -123,7 +123,7 @@ const Application = () => {
 
           {/* заявка на звонок */}
 
-            <CallRequest />
+          <CallRequest />
 
           {/* конец заявки на звонок */}
 
@@ -158,7 +158,12 @@ const Application = () => {
           {/* конец навигации по тарифам */}
 
           {/* тарифы */}
-          <TariffCards cardsToRender={tariffsToShow} />
+          {tariffsToShow == undefined?(
+            <h1>Загрузка тарифов, пожалуйста подождите...</h1>
+          ):(
+            <TariffCards cardsToRender={tariffsToShow} />
+          )}
+          
           {/* конец тарифов */}
 
 
@@ -179,7 +184,9 @@ const Application = () => {
           {/* конец формы для жалоб и предложений */}
 
           {/* модальное окно для заказа звонка по конкретному тарифу */}
-          <ModalInfo cards={tariffsToShow}/>
+          {tariffsToShow == undefined?"":(
+            <ModalInfo cards={tariffsToShow}/>
+          )}
           {/* конец модального окна для заказа звонка по конкретному тарифу */}
 
 

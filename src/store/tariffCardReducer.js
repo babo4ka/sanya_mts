@@ -1,7 +1,7 @@
 const config = require('../config.json')
 
 const initialState ={
-    tariffCards:config.tariffConfig,
+    tariffCards:undefined,
     currentCards:config.tariffConfig.wifi,
     index:0
 }
