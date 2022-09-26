@@ -1,0 +1,28 @@
+.post_holder{
+    color: white;
+
+}
+
+
+.related_tariff{
+    text-decoration: none;
+    color: red;
+    font-size: 10px;
+
+    background: none;
+    border: none;
+
+    text-align: start;
+}
+
+.related_tariff:hover{
+    color:rgb(121, 0, 0);
+}
+
+.article, .date{
+    font-weight: 600;
+}
+
+.post_text{
+    font-size: 12px;
+}

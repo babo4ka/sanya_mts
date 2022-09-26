@@ -11,7 +11,8 @@ const config = require('../config.json')
 const ModalInfo = ({cards}) =>{
 
     const index = useSelector(state => state.cards.index)
-    const tariff = cards[index]
+    const tariffs = useSelector(state => state.cards.tariffCards)
+    const tariff = tariffs[index]
     const data = ['Имя:', 'Номер телефона:']
     const sendMessage = (e)=>{
         e.preventDefault()

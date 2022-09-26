@@ -139,9 +139,9 @@ const TariffCards = ({ cardsToRender }) => {
                     <button onClick={goNext} className="tariffs_holder_nav_btn tariffs_holder_nav_btn_right"><img src={require('../icons/black/arrow_1.png')} alt="" /></button>
                     <button onClick={goPrev} className="tariffs_holder_nav_btn tariffs_holder_nav_btn_left"><img src={require('../icons/black/arrow_1.png')} alt="" /></button>
                     
-                    <TariffCard config={cardsToRender[indexes.first]} index={indexes.first}/>
+                    <TariffCard config={cardsToRender[indexes.first]} index={cardsToRender[indexes.first].id-1}/>
                     {indexes.second || indexes.second > -1?(
-                        <TariffCard config={cardsToRender[indexes.second]} index={indexes.second}/>
+                        <TariffCard config={cardsToRender[indexes.second]} index={cardsToRender[indexes.second].id-1}/>
                     ):("")}
                 </div>
             ):("")}

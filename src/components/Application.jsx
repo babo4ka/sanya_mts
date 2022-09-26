@@ -9,8 +9,9 @@ import { useEffect, useState } from 'react';
 import $ from 'jquery'
 import { useDispatch } from 'react-redux';
 import {set_tags_action} from "../store/tariffBtnReducer"
-import { load_tariffs } from '../store/tariffCardReducer';
+import { load_tariffs, load_posts } from '../store/tariffCardReducer';
 import ModalInfo from './ModalInfo';
+import NewsCards from './NewsCards';
 const config = require('../config.json')
 const Application = () => {
 
@@ -71,6 +72,15 @@ const Application = () => {
 
 
   useEffect(async () => {
+
+    await fetch(config.posts_url, {
+      method:"GET",
+    }).then((response) =>{
+      return response.json()
+    }).then((data)=>{
+      dispatch(load_posts(data))
+      console.log(data)
+    })
 
     
     await fetch(config.tariffs_url, {
@@ -178,6 +188,10 @@ const Application = () => {
             </div>
           </div>
           {/* конец контактов снизу */}
+
+          {/* новости */}
+          <NewsCards/>
+
 
           {/* форма для жалоб и предложений */}
           <ReportWindow />

@@ -2,13 +2,11 @@ const config = require('../config.json')
 
 const initialState ={
     tariffCards:undefined,
-    currentCards:config.tariffConfig.wifi,
-    index:0
+    index:0,
+    posts:undefined
 }
 
-export const CHOOSE_WIFI = "CHOOSE_WIFI"
-export const CHOOSE_WIFITV = "CHOOSE_WIFITV"
-export const CHOOSE_WIFITVPH = "CHOOSE_WIFITVPH"
+export const LOAD_POSTS = "LOAD_POSTS"
 export const CHANGE_INDEX = "CHANGE_INDEX"
 export const LOAD_TARIFFS = "LOAD_TARIFFS"
 
@@ -17,25 +15,17 @@ export const tariffCardReducer = (state = initialState, action)=>{
         case LOAD_TARIFFS:
             return {...state, tariffCards:action.tariffCards}
 
-        case CHOOSE_WIFI:
-            return {...state, currentCards:config.tariffConfig.wifi}
-
-        case CHOOSE_WIFITV:
-            return {...state, currentCards:config.tariffConfig.wifi_tv}
-
-        case CHOOSE_WIFITVPH:
-            return {...state, currentCards:config.tariffConfig.wifi_tv_ph}
-    
         case CHANGE_INDEX:
             return {...state, index:action.index}
+
+        case LOAD_POSTS:
+            return{...state, posts:action.posts}
 
         default:
             return state;
     }
 }
 
-export const choose_wifi = () => ({type:CHOOSE_WIFI})
-export const choose_wifitv = () => ({type:CHOOSE_WIFITV})
-export const choose_wifitvph = () => ({type:CHOOSE_WIFITVPH})
 export const change_index = (index) => ({type:CHANGE_INDEX, index})
 export const load_tariffs = (tariffCards) => ({type:LOAD_TARIFFS, tariffCards})
+export const load_posts = (posts) => ({type:LOAD_POSTS, posts})
